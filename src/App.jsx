@@ -1,66 +1,96 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function App() {
-  const [language, setLanguage] = useState('es'); // Estado para el selector de idiomas
-
-  // Traducciones básicas
-  const translations = {
-    es: {
-      inicio: 'Inicio',
-      sobreNosotros: 'Sobre Nosotros',
-      servicios: 'Servicios',
-      contacto: 'Contacto',
-      vehiculos: 'Vehículos',
-      faq: 'FAQ',
-      testimonios: 'Testimonios',
-      slogan: 'Transporte de Lujo',
-      subtitulo: 'Experiencia exclusiva para tus viajes más importantes.',
-      reservar: 'Reservar Ahora',
-    },
-    en: {
-      inicio: 'Home',
-      sobreNosotros: 'About Us',
-      servicios: 'Services',
-      contacto: 'Contact',
-      vehiculos: 'Vehicles',
-      faq: 'FAQ',
-      testimonios: 'Testimonials',
-      slogan: 'Luxury Transport',
-      subtitulo: 'Exclusive experience for your most important trips.',
-      reservar: 'Book Now',
-    },
-    fr: {
-      inicio: 'Accueil',
-      sobreNosotros: 'À Propos',
-      servicios: 'Services',
-      contacto: 'Contact',
-      vehiculos: 'Véhicules',
-      faq: 'FAQ',
-      testimonios: 'Témoignages',
-      slogan: 'Transport de Luxe',
-      subtitulo: 'Expérience exclusive pour vos voyages les plus importants.',
-      reservar: 'Réserver Maintenant',
-    },
-    de: {
-      inicio: 'Startseite',
-      sobreNosotros: 'Über Uns',
-      servicios: 'Dienstleistungen',
-      contacto: 'Kontakt',
-      vehiculos: 'Fahrzeuge',
-      faq: 'FAQ',
-      testimonios: 'Bewertungen',
-      slogan: 'Luxus-Transport',
-      subtitulo: 'Exklusive Erfahrung für Ihre wichtigsten Reisen.',
-      reservar: 'Jetzt Buchen',
-    },
-  };
-
-  const t = translations[language];
+    const [language, setLanguage] = useState('es'); // Estado para el selector de idiomas
+    const [isMenuOpen, setIsMenuOpen] = useState(false); // Estado para el menú hamburguesa
+    const [currentTestimonial, setCurrentTestimonial] = useState(0); // Estado para el carrusel
+  
+    // Traducciones básicas
+    const translations = {
+      es: {
+        inicio: 'Inicio',
+        sobreNosotros: 'Sobre Nosotros',
+        servicios: 'Servicios',
+        contacto: 'Contacto',
+        vehiculos: 'Vehículos',
+        faq: 'FAQ',
+        testimonios: 'Testimonios',
+        slogan: 'Transporte de Lujo',
+        subtitulo: 'Experiencia exclusiva para tus viajes más importantes.',
+        reservar: 'Reservar Ahora',
+        derechosReservados: 'Todos los derechos reservados.',
+      },
+      en: {
+        inicio: 'Home',
+        sobreNosotros: 'About Us',
+        servicios: 'Services',
+        contacto: 'Contact',
+        vehiculos: 'Vehicles',
+        faq: 'FAQ',
+        testimonios: 'Testimonials',
+        slogan: 'Luxury Transport',
+        subtitulo: 'Exclusive experience for your most important trips.',
+        reservar: 'Book Now',
+        derechosReservados: 'All rights reserved.',
+      },
+      fr: {
+        inicio: 'Accueil',
+        sobreNosotros: 'À Propos',
+        servicios: 'Services',
+        contacto: 'Contact',
+        vehiculos: 'Véhicules',
+        faq: 'FAQ',
+        testimonios: 'Témoignages',
+        slogan: 'Transport de Luxe',
+        subtitulo: 'Expérience exclusive pour vos voyages les plus importants.',
+        reservar: 'Réserver Maintenant',
+        derechosReservados: 'Tous droits réservés.',
+      },
+      de: {
+        inicio: 'Startseite',
+        sobreNosotros: 'Über Uns',
+        servicios: 'Dienstleistungen',
+        contacto: 'Kontakt',
+        vehiculos: 'Fahrzeuge',
+        faq: 'FAQ',
+        testimonios: 'Bewertungen',
+        slogan: 'Luxus-Transport',
+        subtitulo: 'Exklusive Erfahrung für Ihre wichtigsten Reisen.',
+        reservar: 'Jetzt Buchen',
+        derechosReservados: 'Alle Rechte vorbehalten.',
+      },
+    };
+  
+    const t = translations[language];
+  
+    // Datos de los testimonios
+    const testimonials = [
+      {
+        quote: "El servicio fue excepcional. ¡Recomiendo Luxury Transport!",
+        author: "- Juan Pérez",
+      },
+      {
+        quote: "Una experiencia inolvidable. Los conductores son muy profesionales.",
+        author: "- María López",
+      },
+      {
+        quote: "El lujo redefinido. ¡Sin duda volveré a usar este servicio!",
+        author: "- Carlos Ramírez",
+      },
+    ];
+  
+    // Función para cambiar automáticamente los testimonios
+    React.useEffect(() => {
+      const interval = setInterval(() => {
+        setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+      }, 5000); // Cambia cada 5 segundos
+      return () => clearInterval(interval);
+    }, []);
 
   return (
     <div className="bg-black text-white min-h-screen">
       {/* Header */}
-      <header className="flex justify-between items-center px-8 py-4 bg-gray-900">
+      <header className="flex justify-between items-center px-4 py-4 bg-gray-900 md:px-8">
         <div className="flex items-center">
           <img
             src="/src/assets/logo.png"
@@ -69,7 +99,28 @@ function App() {
           />
           <h1 className="text-xl font-bold">Luxury Transport</h1>
         </div>
-        <nav className="flex space-x-4">
+        {/* Menú Hamburguesa */}
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="md:hidden text-white focus:outline-none"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 6h16M4 12h16m-7 6h7"
+            />
+          </svg>
+        </button>
+        {/* Menú Desktop */}
+        <nav className="hidden md:flex space-x-4">
           <a href="#inicio" className="hover:text-gray-400">
             {t.inicio}
           </a>
@@ -92,6 +143,7 @@ function App() {
             {t.contacto}
           </a>
         </nav>
+        {/* Selector de Idiomas */}
         <div className="flex items-center space-x-2">
           <select
             value={language}
@@ -105,6 +157,35 @@ function App() {
           </select>
         </div>
       </header>
+
+      {/* Menú Móvil */}
+      <div
+        className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} bg-gray-900`}
+      >
+        <nav className="flex flex-col space-y-2 p-4">
+          <a href="#inicio" className="hover:text-gray-400">
+            {t.inicio}
+          </a>
+          <a href="#sobre-nosotros" className="hover:text-gray-400">
+            {t.sobreNosotros}
+          </a>
+          <a href="#servicios" className="hover:text-gray-400">
+            {t.servicios}
+          </a>
+          <a href="#vehiculos" className="hover:text-gray-400">
+            {t.vehiculos}
+          </a>
+          <a href="#faq" className="hover:text-gray-400">
+            {t.faq}
+          </a>
+          <a href="#testimonios" className="hover:text-gray-400">
+            {t.testimonios}
+          </a>
+          <a href="#contacto" className="hover:text-gray-400">
+            {t.contacto}
+          </a>
+        </nav>
+      </div>
 
       {/* Hero Section */}
       <section
@@ -170,7 +251,9 @@ function App() {
                   d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-              <h3 className="text-2xl font-bold mb-2">Servicio Personalizado</h3>
+              <h3 className="text-2xl font-bold mb-2">
+                Servicio Personalizado
+              </h3>
               <p className="text-gray-400">
                 Adaptamos nuestros servicios a tus necesidades específicas.
               </p>
@@ -267,23 +350,20 @@ function App() {
         </div>
       </section>
 
-      {/* Testimonios */}
+      
+      {/* Testimonios con Carrusel */}
       <section id="testimonios" className="py-20 px-4 bg-gray-900">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-8">{t.testimonios}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-gray-800 p-6 rounded-lg">
-              <p className="text-gray-400 italic mb-4">
-                "El servicio fue excepcional. ¡Recomiendo Luxury Transport!"
+          <div className="relative">
+            <div className="flex justify-center items-center">
+              <p className="text-gray-400 italic text-lg">
+                {testimonials[currentTestimonial].quote}
               </p>
-              <p className="font-bold">- Juan Pérez</p>
             </div>
-            <div className="bg-gray-800 p-6 rounded-lg">
-              <p className="text-gray-400 italic mb-4">
-                "Una experiencia inolvidable. Los conductores son muy profesionales."
-              </p>
-              <p className="font-bold">- María López</p>
-            </div>
+            <p className="font-bold mt-4">
+              {testimonials[currentTestimonial].author}
+            </p>
           </div>
         </div>
       </section>
@@ -316,6 +396,13 @@ function App() {
           </form>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 py-8">
+        <div className="max-w-6xl mx-auto text-center text-gray-400">
+          <p>{t.derechosReservados} © 2023 Luxury Transport</p>
+        </div>
+      </footer>
     </div>
   );
 }
