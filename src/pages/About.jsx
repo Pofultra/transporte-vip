@@ -35,7 +35,7 @@ function About() {
         {/* Imagen */}
         <div className="md:w-1/2">
           <img
-            src="/src/assets/about-image.jpg"
+            src="./images/about.webp"
             alt="Sobre Nosotros"
             className="rounded shadow"
           />
@@ -43,7 +43,7 @@ function About() {
         
         {/* Texto principal */}
         <div className="md:w-1/2">
-          <h2 className="text-3xl font-bold text-gold mb-4">Sobre Nosotros</h2>
+          <h2 className="text-3xl font-bold text-gold mb-4 text-center">Sobre Nosotros</h2>
           <p className="text-gray-300 mb-4">
             Contamos con amplia experiencia en transporte de figuras políticas de alto nivel:
             vicepresidentes, secretarios de Estado y mandatarios. Nuestro compromiso es brindar
