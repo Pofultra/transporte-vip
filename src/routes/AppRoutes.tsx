@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
-import AboutUs from "../pages/AboutUs";
+import AboutUs from "../pages/About";
 import Services from "../pages/Services";
 import Contact from "../pages/Contact";
 import Vehicles from "../pages/Vehicles";
-import FAQs from "../pages/FAQs";
+import FAQs from "../pages/FAQ";
 import Testimonials from "../pages/Testimonials";
-import Booking from "../pages/Booking";
+import Booking from "../pages/Reservations";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
