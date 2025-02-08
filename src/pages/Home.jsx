@@ -1,5 +1,6 @@
 import React from "react";
 
+
 function Home({ onOpenWizard }) {
   return (
     <section
@@ -31,9 +32,9 @@ function Home({ onOpenWizard }) {
         </p>
         <button
           onClick={onOpenWizard}
-          className="bg-gold text-black px-5 py-3 rounded-lg text-lg font-semibold hover:bg-yellow-600 transition"
+          className="bg-gold bg-opacity-80 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-yellow-600 transition"
         >
-          Reserva Ahora
+          Reserva Ahora <i class="ri-arrow-right-line"></i>
         </button>
       </div>
 
