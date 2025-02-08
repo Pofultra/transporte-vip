@@ -1,9 +1,27 @@
-// src/components/Navbar.jsx
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Navbar({ onOpenWizard }) {
+  const [showNavbar, setShowNavbar] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const aboutSection = document.getElementById('about');
+      if (aboutSection) {
+        const aboutPosition = aboutSection.offsetTop;
+        setShowNavbar(window.scrollY >= aboutPosition - 50);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <nav className="bg-black text-white p-4 flex items-center justify-between">
+    <nav
+      className={`fixed top-0 left-0 w-full bg-black text-white p-4 flex items-center justify-between transition-transform duration-300 ${
+        showNavbar ? 'translate-y-0' : '-translate-y-full'
+      }`}
+    >
       {/* Logo */}
       <div className="text-xl font-bold">VIPTransport</div>
 

@@ -7,7 +7,7 @@ function Vehicles() {
     {
       name: 'Mercedes S-Class',
       description: 'Asientos de piel, Wi-Fi, seguridad avanzada. Perfecta para traslados ejecutivos.',
-      image: '/src/assets/mercedes-s.jpg',
+      image: './images/vclass.webp',
     },
     {
       name: 'Mercedes V-Class',
