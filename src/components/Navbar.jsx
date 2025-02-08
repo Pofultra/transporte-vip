@@ -18,8 +18,8 @@ function Navbar({ onOpenWizard }) {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full bg-black text-white p-4 flex items-center justify-between transition-transform duration-300 ${
-        showNavbar ? 'translate-y-0' : '-translate-y-full'
+      className={`fixed top-0 left-0 w-full bg-black text-white p-4 flex items-center justify-between transition-all duration-500 ease-in-out ${
+        showNavbar ? 'opacity-100 visible' : 'opacity-0 invisible'
       }`}
     >
       {/* Logo */}
