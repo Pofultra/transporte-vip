@@ -28,11 +28,13 @@ function Home({ onOpenWizard }) {
 
       {/* Contenido principal */}
       <div className="relative z-10 text-left px-6 max-w-3xl self-start mr-6 lg:pt-40">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-         TRANSPORTE VIP
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white text-opacity-70">
+          TRANSPORTE VIP
         </h1>
+
         <p className="text-sm sm:text-lg md:text-xl mb-6">
-        El eligido por las figuras de alto nivel.
+          El eligido por las figuras de alto nivel. Especialistas en traslados
+          ejecutivos.
         </p>
         <button
           onClick={onOpenWizard}
@@ -43,7 +45,7 @@ function Home({ onOpenWizard }) {
       </div>
 
       {/* Estadísticas en la parte inferior */}
-      <div className="relative z-10 bottom-4 w-full flex justify-center gap-2 text-center text-lg text-xl font-semibold pt-40 lg:pt-0 md:pt-0 mt-30 lg:mt-0 md:mt-0 ">
+      <div className="relative z-10 bottom-4 w-full flex justify-center gap-2 text-center text-lg text-xl font-semibold text-opacity-70 pt-40 lg:pt-0  mt-30 lg:mt-0  ">
         <div>
           <span className="block text-2xl sm:text-3xl font-bold text-gold">
             10K+
