@@ -39,7 +39,7 @@ function Home({ onOpenWizard }) {
       </div>
 
       {/* Estadísticas en la parte inferior */}
-      <div className="relative z-10 absolute bottom-4 w-full flex justify-center gap-6 text-center text-lg text-xl font-semibold pt-40 lg:pt-0 md:pt-0 mt-30 lg:mt-0 md:mt-0">
+      <div className="relative z-10 bottom-4 w-full flex justify-center gap-2 text-center text-lg text-xl font-semibold pt-40 lg:pt-0 md:pt-0 mt-30 lg:mt-0 md:mt-0 ">
         <div>
           <span className="block text-2xl sm:text-3xl font-bold text-gold">10K+</span>
           <span className="text-white">Clientes satisfechos</span>
