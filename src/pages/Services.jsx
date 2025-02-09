@@ -34,15 +34,21 @@ function Services() {
         <h2 className="text-3xl md:text-4xl font-bold text-gold mb-8">
           Nuestros Servicios
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-gray-900 p-6 rounded-lg shadow flex flex-col items-center text-center"
+              className="bg-gray-900 p-6 rounded-xl shadow-lg flex flex-col items-center text-center transition transform hover:scale-105 hover:bg-gray-800"
             >
-              <i className={`${service.icon} text-gold text-4xl`}></i>
+              <i
+                className={`${service.icon} text-gold text-4xl`}
+                aria-hidden="true"
+              ></i>
+
               <h3 className="text-2xl font-semibold mt-4">{service.title}</h3>
-              <p className="text-gray-300 mt-2">{service.description}</p>
+              <p className="text-gray-300 mt-2 text-sm md:text-base">
+                {service.description}
+              </p>
             </div>
           ))}
         </div>

@@ -38,7 +38,7 @@ function Home({ onOpenWizard }) {
         </p>
         <button
           onClick={onOpenWizard}
-          className="bg-gold bg-opacity-80 text-white px-6 py-3 rounded-full text-base font-semibold hover:bg-yellow-600 transition whitespace-normal text-center leading-tight w-30"
+          className="bg-gold bg-opacity-80 text-white px-6 py-3 rounded-full text-base font-semibold hover:bg-yellow-600 transition whitespace-normal text-center leading-tight w-30 animate-pulse"
         >
           Reserva Ahora <i className="ri-arrow-right-line"></i>
         </button>
