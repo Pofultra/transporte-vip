@@ -18,7 +18,7 @@ function Navbar({ onOpenWizard }) {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full bg-black text-white p-4 flex items-center justify-between transition-all duration-500 ease-in-out ${
+      className={`fixed top-0 left-0 w-full bg-black text-white p-4 flex items-center justify-between transition-all duration-500 ease-in-out z-50 shadow-lg ${
         showNavbar ? 'opacity-100 visible' : 'opacity-0 invisible'
       }`}
     >
@@ -38,11 +38,11 @@ function Navbar({ onOpenWizard }) {
 
       {/* Botón de Reserva */}
       <button
-        onClick={onOpenWizard}
-        className="bg-gold text-black px-4 py-2 rounded hover:bg-yellow-600"
-      >
-        Reserva Ahora
-      </button>
+          onClick={onOpenWizard}
+          className="bg-gold bg-opacity-80 text-white px-6 py-3 rounded-full text-base font-semibold hover:bg-yellow-600 transition whitespace-normal text-center leading-tight w-30"
+        >
+          Reserva Ahora <i className="ri-arrow-right-line"></i>
+        </button>
     </nav>
   );
 }

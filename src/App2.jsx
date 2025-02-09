@@ -33,8 +33,8 @@ function App() {
       {/* Secciones del sitio (one-page) */}
       <Home onOpenWizard={openWizard}/>
       <About />
-      <Services />
       <Vehicles />
+      <Services />
       <Testimonials />
       <FAQ />
       <Contact />
