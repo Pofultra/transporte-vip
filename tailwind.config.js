@@ -8,11 +8,13 @@ module.exports = {
     extend: {
       colors: {
         // Personaliza tu tono de dorado y azul oscuro
-        gold: '#CDAE7A',
+        gold: '#B79358',
+        gris: '#F1F1F1',
         darkBlue: '#001f3f',
       },
       fontFamily: {
-        sans: ['Poppins', 'sans-serif'],
+        bebas: ['Bebas Neue', 'cursive'],
+        montserrat: ['Montserrat', 'sans-serif'],
       },
     },
   },
