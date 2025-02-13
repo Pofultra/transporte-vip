@@ -1,8 +1,69 @@
 import React from "react";
+import { useLanguage } from "../context/LanguageContext";
 import homeImage from "/images/home.webp";
 import logoImage from "/images/logo_jay.png";
-
+// Traducciones
+const translations = {
+  en: {
+    title: "Luxury Transport",
+    subtitle:
+      "An exclusive, refined, and comfortable experience designed to elevate all your travels.",
+    button: "Book Now",
+    stats: {
+      clients: "10K+",
+      clientsText: "Satisfied Clients",
+      experience: "20+",
+      experienceText: "Years of Experience",
+      drivers: "100",
+      driversText: "Professional Drivers",
+    },
+  },
+  de: {
+    title: "Luxustransport",
+    subtitle:
+      "Ein exklusives, raffiniertes und komfortables Erlebnis, das all Ihre Reisen zu einem Erlebnis macht.",
+    button: "Jetzt buchen",
+    stats: {
+      clients: "10K+",
+      clientsText: "Zufriedene Kunden",
+      experience: "20+",
+      experienceText: "Jahrelange Erfahrung",
+      drivers: "100",
+      driversText: "Professionelle Fahrer",
+    },
+  },
+  es: {
+    title: "Transporte de Lujo",
+    subtitle:
+      "Una experiencia exclusiva, refinada y cómoda diseñada para elevar todos tus viajes.",
+    button: "Reserva Ahora",
+    stats: {
+      clients: "10K+",
+      clientsText: "Clientes Satisfechos",
+      experience: "20+",
+      experienceText: "Años de Experiencia",
+      drivers: "100",
+      driversText: "Conductores Profesionales",
+    },
+  },
+  fr: {
+    title: "Transport de Luxe",
+    subtitle:
+      "Une expérience exclusive, raffinée et confortable conçue pour sublimer tous vos voyages.",
+    button: "Réservez Maintenant",
+    stats: {
+      clients: "10K+",
+      clientsText: "Clients Satisfaits",
+      experience: "20+",
+      experienceText: "Des Années d'Expérience",
+      drivers: "100",
+      driversText: "Conducteurs Professionnels",
+    },
+  },
+};
 function Home({ onOpenWizard }) {
+  const { language } = useLanguage();
+  const t = translations[language];
   return (
     <section
       id="home"
@@ -30,19 +91,18 @@ function Home({ onOpenWizard }) {
       {/* Contenido principal */}
       <div className="absolute z-10 text-center px-6 max-w-[404px] w-[404px] h-[120px] top-[180px] ">
         <h1 className="font-bebas font-bold text-[39px]  tracking-normal ">
-          Luxury Transport
+          {t.title}
         </h1>
 
         <span className="font-montserrat text-[19px]  tracking-normal block mb-6">
-          An exclusive, refined, and comfortable experience designed to elevate
-          all your travels
+          {t.subtitle}
         </span>
       </div>
       <button
         onClick={onOpenWizard}
         className="absolute w-[146px] h-[55px] top-[393px] left-[20px] flex items-center justify-center gap-2.5 bg-gold text-white font-bold rounded-full shadow-md hover:bg-blue-600 transition duration-300"
       >
-        Reserva Ahora <i className="ri-arrow-right-line"></i>
+        {t.button} <i className="ri-arrow-right-line"></i>
       </button>
 
       {/* Estadísticas en la parte inferior */}
@@ -52,7 +112,7 @@ function Home({ onOpenWizard }) {
             10K+
           </span>
           <span className="font-montserrat text-gris text-lg leading-7 text-center">
-            Clientes satisfechos
+            {t.stats.clientsText}
           </span>
         </div>
         <div>
@@ -60,7 +120,7 @@ function Home({ onOpenWizard }) {
             20+
           </span>
           <span className="font-montserrat text-gris text-lg leading-7 text-center">
-            Años de experiencia
+            {t.stats.experienceText}
           </span>
         </div>
         <div>
@@ -68,7 +128,7 @@ function Home({ onOpenWizard }) {
             100
           </span>
           <span className="font-montserrat text-gris text-lg leading-7 text-center">
-            Conductores profesionales
+            {t.stats.driversText}
           </span>
         </div>
       </div>
