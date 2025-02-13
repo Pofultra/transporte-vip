@@ -74,7 +74,7 @@ function Navbar({ onOpenWizard }) {
       }`}
     >
       {/* Logo */}
-      <div className="text-xl font-bebas">VIPTransport</div>
+      <div className="ml-2 text-xl font-bebas">VIPTransport</div>
 
       {/* Menú */}
       <div className="hidden md:flex gap-6">
@@ -88,7 +88,7 @@ function Navbar({ onOpenWizard }) {
       </div>
 
       {/* Bloque derecho (botón de reserva ) */}
-      <div className="flex items-center gap-4">
+      <div className="mr-2 flex items-center gap-4">
         
 
         {/* Botón de Reserva */}
