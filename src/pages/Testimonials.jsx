@@ -115,7 +115,6 @@ const translations = {
 };
 
 function Testimonials() {
-  
   const { language } = useLanguage();
   const t = translations[language] || translations["en"];
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -125,87 +124,57 @@ function Testimonials() {
     const interval = setInterval(() => {
       setDirection(1);
       setCurrentIndex((prevIndex) => (prevIndex + 1) % t.testimonials.length);
-    }, 15000);
+    }, 30000); // Cambio cada 30 segundos
     return () => clearInterval(interval);
-  },  [t.testimonials.length]);
-
-  const variants = {
-    enter: (direction) => ({
-      x: direction > 0 ? 300 : -300,
-      opacity: 0,
-    }),
-    center: { x: 0, opacity: 1 },
-    exit: (direction) => ({
-      x: direction > 0 ? -300 : 300,
-      opacity: 0,
-    }),
-  };
+  }, [t.testimonials.length]);
 
   return (
     <section id="testimonials" className="bg-black text-white py-16 relative">
-      {/* Imagen superior con efecto de foco */}
+      {/* Imagen superior con bandas de difuminación */}
       <div className="relative w-full flex justify-center mb-8 overflow-hidden">
-        <div className="absolute inset-0 bg-black opacity-50"></div>
-        {/* Capa de difuminación */}
-        <div className="absolute top-0 left-0 w-full h-[30px] bg-gradient-to-t from-transparent to-black pointer-events-none z-10"></div>
         <img
           src={preTestimonios}
           alt="Luxury Car"
-          className="w-full max-w-3xl object-cover grayscale opacity-80"
+          className="w-full max-w-3xl object-cover grayscale"
         />
-        <div className="absolute top-10 left-1/2 transform -translate-x-1/2 text-center">
-          <h3 className="text-xl md:text-2xl font-semibold text-white">
-          {t.trust}
+
+        {/* Bandas de difuminación superior e inferior */}
+        <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-black to-transparent pointer-events-none z-10"></div>
+        <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black to-transparent pointer-events-none z-10"></div>
+
+        {/* Texto sobre la imagen (siempre por encima) */}
+        <div className="absolute top-10 w-[404px] h-[82px] text-center z-20">
+          <h3 className="font-bebas text-[22px] leading-[32px] font-bold text-white uppercase">
+            {t.trust}
           </h3>
-          <p className="text-lg md:text-xl text-gray-300">
-          {t.excellence}
+          <p className="font-bebas text-[22px] leading-[33px] font-bold text-gris uppercase">
+            {t.excellence}
           </p>
         </div>
-        {/* Capa de difuminación */}
-        <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black to-transparent pointer-events-none z-9"></div>
       </div>
 
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-3xl font-bold text-gold mb-8">{t.title}</h2>
 
-        {/* Contenedor de testimonios con cambio automático */}
-        <div className="relative w-full max-w-3xl overflow-hidden h-32 flex items-center justify-center">
+        {/* Contenedor de testimonios (animado) */}
+        <div className="relative w-full max-w-3xl mx-auto flex items-center justify-center overflow-hidden min-h-[180px]">
           <AnimatePresence custom={direction} mode="wait">
             <motion.div
               key={t.testimonials[currentIndex].quote}
-              variants={variants}
-              custom={direction}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{ duration: 0.5 }}
-              className="absolute w-full text-center bg-white bg-opacity-10 backdrop-blur-xl p-6 rounded-3xl shadow-lg border border-white/10"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -50 }}
+              transition={{ duration: 0.8 }}
+              className="absolute w-full text-center bg-transparent p-6 rounded-lg"
             >
               <p className="text-gray-100 italic text-lg">
                 "{t.testimonials[currentIndex].quote}"
               </p>
               <p className="text-gold font-semibold mt-4">
-              {t.testimonials[currentIndex].author}
+                {t.testimonials[currentIndex].author}
               </p>
             </motion.div>
           </AnimatePresence>
-        </div>
-
-        {/* Indicadores de testimonio */}
-        <div className="flex gap-2 mt-6 justify-center">
-          {t.testimonials.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => {
-                setDirection(index > currentIndex ? 1 : -1);
-                setCurrentIndex(index);
-              }}
-              className={`w-3 h-3 rounded-full transition-all ${
-                index === currentIndex ? "bg-gold scale-110" : "bg-gray-400"
-              }`}
-              aria-label={`Seleccionar testimonio ${index + 1}`}
-            ></button>
-          ))}
         </div>
       </div>
     </section>
