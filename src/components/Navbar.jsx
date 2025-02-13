@@ -74,7 +74,7 @@ function Navbar({ onOpenWizard }) {
       }`}
     >
       {/* Logo */}
-      <div className="text-xl font-bold">VIPTransport</div>
+      <div className="text-xl font-bebas">VIPTransport</div>
 
       {/* Menú */}
       <div className="hidden md:flex gap-6">
@@ -94,7 +94,7 @@ function Navbar({ onOpenWizard }) {
         {/* Botón de Reserva */}
         <button
           onClick={onOpenWizard}
-          className="bg-gold bg-opacity-80 text-white px-6 py-3 rounded-full text-base font-semibold hover:bg-yellow-600 transition whitespace-normal text-center leading-tight w-30"
+          className="bg-gold bg-opacity-80 text-white px-6 py-3 rounded-full text-base font-bebas hover:bg-yellow-600 transition whitespace-normal text-center leading-tight w-30"
         >
           {t.bookNow} <i className="ri-arrow-right-line"></i>
         </button>

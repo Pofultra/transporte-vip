@@ -130,50 +130,130 @@ const translations = {
     ],
   },
   fr: {
-    title: "Questions Fréquemment Posées",
+    title: "FAQ",
     faqs: [
       {
         question:
-          "Comment puis-je réserver un transfert avec Jay’s Transfers, Comfort and Luxury?",
+          "Comment puis-je réserver un transfert avec Jay’s Transfers, Confort et Luxe ?",
         answer:
-          "Vous pouvez facilement réserver via notre site Web, par téléphone ou via WhatsApp. Nous vous recommandons de réserver à l'avance pour garantir la disponibilité.",
+          "Vous pouvez facilement réserver via notre site web, par téléphone ou via WhatsApp. Nous recommandons de réserver à l'avance pour assurer la disponibilité.",
       },
       {
-        question: "Quels types de véhicules proposez-vous?",
+        question: "Quels types de véhicules proposez-vous ?",
         answer:
-          "Nous disposons d'une flotte de luxe comprenant Mercedes V-Class, BMW Série 5, Mercedes Sprinters, Tesla et d'autres véhicules haut de gamme, garantissant confort et sécurité à chaque voyage.",
+          "Nous disposons d'une flotte de luxe qui inclut des Mercedes V-Class, BMW Série 5, Mercedes Sprinters, Tesla et d'autres véhicules premium, garantissant confort et sécurité à chaque trajet.",
       },
       {
         question:
-          "Fournissez-vous des services de transport en dehors de la Suisse?",
+          "Proposez-vous des services de transport en dehors de la Suisse ?",
         answer:
-          "Oui, nous proposons des transferts vers toute destination en Europe depuis la Suisse. Contactez-nous pour plus de détails sur votre itinéraire spécifique.",
+          "Oui, nous offrons des transferts vers n'importe quelle destination en Europe depuis la Suisse. Contactez-nous pour plus de détails sur votre itinéraire spécifique.",
+      },
+      {
+        question: "Pouvez-vous accueillir de grands groupes ?",
+        answer:
+          "Oui, nous avons des véhicules adaptés aux petits et grands groupes, y compris des Mercedes Sprinters et d'autres transports exécutifs de luxe.",
+      },
+      {
+        question: "Proposez-vous des transports pour des événements spéciaux ?",
+        answer:
+          "Oui, nous fournissons des services pour les mariages, conférences, événements d'entreprise et toute occasion spéciale, en assurant ponctualité et élégance.",
+      },
+      {
+        question:
+          "Combien coûte un transfert de l'aéroport de Zurich à ma destination ?",
+        answer:
+          "Les tarifs varient en fonction de la distance et du type de véhicule. Vous pouvez demander un devis personnalisé sur notre site web ou en nous contactant directement.",
+      },
+      {
+        question: "Quels modes de paiement acceptez-vous ?",
+        answer:
+          "Nous acceptons les paiements par carte de crédit/débit, virement bancaire et, dans certains cas, en espèces.",
+      },
+      {
+        question: "Est-il nécessaire de payer à l'avance ?",
+        answer:
+          "Dans la plupart des cas, oui. Pour garantir votre réservation, nous demandons un paiement intégral ou partiel à l'avance selon le service demandé.",
+      },
+      {
+        question: "Que se passe-t-il si mon vol est retardé ?",
+        answer:
+          "Nous suivons votre vol en temps réel pour ajuster l'heure de prise en charge sans frais supplémentaires.",
+      },
+      {
+        question: "Puis-je modifier ou annuler ma réservation ?",
+        answer:
+          "Oui, vous pouvez modifier ou annuler votre réservation conformément à nos politiques d'annulation. Consultez les conditions sur notre site web ou contactez-nous pour plus d'informations.",
+      },
+      {
+        question:
+          "Disposez-vous de sièges bébé ou rehausseurs pour enfants ?",
+        answer:
+          "Oui, nous proposons des sièges de sécurité pour bébés et enfants sur demande, sans coût supplémentaire.",
       },
     ],
   },
-  de: {
-    title: "Häufig Gestellte Fragen",
+de: {
+    title: "FAQ",
     faqs: [
       {
         question:
-          "Wie kann ich einen Transfer mit Jay’s Transfers, Comfort and Luxury buchen?",
+          "Wie kann ich einen Transfer bei Jay’s Transfers, Komfort und Luxus, buchen?",
         answer:
-          "Sie können ganz einfach über unsere Website, per Telefon oder über WhatsApp buchen. Wir empfehlen, im Voraus zu buchen, um die Verfügbarkeit sicherzustellen.",
+          "Sie können ganz einfach über unsere Website, per Telefon oder über WhatsApp buchen. Wir empfehlen eine frühzeitige Buchung, um die Verfügbarkeit zu gewährleisten.",
       },
       {
         question: "Welche Fahrzeugtypen bieten Sie an?",
         answer:
-          "Wir verfügen über eine Luxusflotte, darunter Mercedes V-Klasse, BMW 5er-Serie, Mercedes Sprinters, Tesla und andere Premium-Fahrzeuge, die Komfort und Sicherheit auf jeder Reise gewährleisten.",
+          "Wir verfügen über eine Luxusflotte, die Mercedes V-Klasse, BMW 5er Serie, Mercedes Sprinter, Tesla und andere Premiumfahrzeuge umfasst, um Komfort und Sicherheit bei jeder Fahrt zu gewährleisten.",
       },
       {
-        question: "Bieten Sie Transportdienste außerhalb der Schweiz an?",
+        question:
+          "Bieten Sie Transportdienstleistungen außerhalb der Schweiz an?",
         answer:
-          "Ja, wir bieten Transfers zu jedem Ziel in Europa von der Schweiz aus an. Kontaktieren Sie uns für weitere Details zu Ihrer spezifischen Route.",
+          "Ja, wir bieten Transfers zu jedem Ziel in Europa ab der Schweiz an. Kontaktieren Sie uns für weitere Details zu Ihrer spezifischen Route.",
       },
       {
         question: "Können Sie große Gruppen befördern?",
         answer:
-          "Ja, wir verfügen über Fahrzeuge für kleine und große Gruppen, darunter Mercedes Sprinters und andere luxuriöse Executive-Transporte.",
+          "Ja, wir haben Fahrzeuge, die sowohl für kleine als auch für große Gruppen geeignet sind, einschließlich Mercedes Sprinter und anderer luxuriöser Business-Transportmittel.",
+      },
+      {
+        question: "Bieten Sie Transport für besondere Anlässe an?",
+        answer:
+          "Ja, wir bieten Service für Hochzeiten, Konferenzen, Firmenveranstaltungen und besondere Anlässe an und stellen dabei Pünktlichkeit und Eleganz sicher.",
+      },
+      {
+        question:
+          "Was kostet ein Transfer vom Flughafen Zürich zu meinem Ziel?",
+        answer:
+          "Die Preise variieren je nach Entfernung und Fahrzeugtyp. Sie können ein personalisiertes Angebot auf unserer Website anfordern oder uns direkt kontaktieren.",
+      },
+      {
+        question: "Welche Zahlungsmethoden akzeptieren Sie?",
+        answer:
+          "Wir akzeptieren Kredit-/Debitkartenzahlungen, Banküberweisungen und in einigen Fällen Barzahlungen.",
+      },
+      {
+        question: "Ist eine Vorauszahlung erforderlich?",
+        answer:
+          "In den meisten Fällen ja. Um Ihre Reservierung zu garantieren, verlangen wir eine vollständige oder teilweise Vorauszahlung, abhängig von dem angeforderten Service.",
+      },
+      {
+        question: "Was passiert, wenn mein Flug Verspätung hat?",
+        answer:
+          "Wir verfolgen Ihren Flug in Echtzeit, um die Abholzeit anzupassen, ohne zusätzliche Kosten.",
+      },
+      {
+        question: "Kann ich meine Reservierung ändern oder stornieren?",
+        answer:
+          "Ja, Sie können Ihre Reservierung gemäß unseren Stornierungsrichtlinien ändern oder stornieren. Überprüfen Sie die Bedingungen auf unserer Website oder kontaktieren Sie uns für weitere Informationen.",
+      },
+      {
+        question:
+          "Haben Sie Babysitze oder Kindersitzerhöhungen?",
+        answer:
+          "Ja, wir bieten auf Anfrage Babysitze und Kindersicherheitssitze kostenlos an.",
       },
     ],
   },

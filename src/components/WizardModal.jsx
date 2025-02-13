@@ -1,25 +1,67 @@
-// src/components/WizardModal.jsx
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { useLanguage } from "../context/LanguageContext";
+
+// Traducciones
+const translations = {
+  en: {
+    steps: ["Service Type", "Date & Time", "Trip Details", "Contact", "Review Your Details"],
+    selectOption: "Select an option",
+    next: "NEXT",
+    back: "BACK",
+    send: "SEND",
+    close: "Close",
+    serviceType: "Service Type",
+    date: "Date",
+    time: "Time",
+    pickup: "Pickup Location",
+    destination: "Destination",
+    selectCar: "Select Vehicle",
+    contact: "Contact Information",
+    fullName: "Full Name",
+    email: "Email",
+    phone: "Phone Number",
+    services: ["Executive", "Special Needs Children", "Elderly", "Special Events"],
+    cars: ["Mercedes V-Class", "Mercedes S-Class", "Mercedes E-Class"],
+    confirmation: "Review Your Details",
+  },
+  es: {
+    steps: ["Tipo de Servicio", "Fecha y Hora", "Detalles del Viaje", "Contacto", "Confirmación"],
+    selectOption: "Selecciona una opción",
+    next: "SIGUIENTE",
+    back: "ATRÁS",
+    send: "ENVIAR",
+    close: "Cerrar",
+    serviceType: "Tipo de servicio",
+    date: "Fecha",
+    time: "Hora",
+    pickup: "Lugar de Recogida",
+    destination: "Destino",
+    selectCar: "Seleccionar Vehículo",
+    contact: "Información de Contacto",
+    fullName: "Nombre Completo",
+    email: "Correo Electrónico",
+    phone: "Teléfono",
+    services: ["Ejecutivo", "Niños Especiales", "Adultos Mayores", "Eventos Especiales"],
+    cars: ["Mercedes V-Class", "Mercedes S-Class", "Mercedes E-Class"],
+    confirmation: "Revisa tu Información",
+  },
+};
 
 function WizardModal({ onClose }) {
-  const steps = [
-    'Tipo de Servicio',
-    'Fecha y Hora',
-    'Detalles',
-    'Contacto',
-    'Confirmación',
-  ];
+  const { language } = useLanguage();
+  const t = translations[language] || translations["en"];
 
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
-    service: '',
-    date: '',
-    time: '',
-    destination: '',
-    specialReqs: '',
-    fullName: '',
-    email: '',
-    phone: '',
+    service: "",
+    date: "",
+    time: "",
+    pickup: "",
+    destination: "",
+    car: "",
+    fullName: "",
+    email: "",
+    phone: "",
   });
 
   const handleChange = (e) => {
@@ -28,7 +70,7 @@ function WizardModal({ onClose }) {
   };
 
   const nextStep = () => {
-    if (currentStep < steps.length) {
+    if (currentStep < t.steps.length) {
       setCurrentStep((prev) => prev + 1);
     }
   };
@@ -39,207 +81,175 @@ function WizardModal({ onClose }) {
     }
   };
 
-  // Enviar a WhatsApp
-  const handleSubmit = () => {
-    const message =
-      `Nueva Reserva:\n\n` +
-      `Servicio: ${formData.service}\n` +
-      `Fecha: ${formData.date}\n` +
-      `Hora: ${formData.time}\n` +
-      `Destino: ${formData.destination}\n` +
-      `Requerimientos: ${formData.specialReqs}\n` +
-      `Nombre: ${formData.fullName}\n` +
-      `Email: ${formData.email}\n` +
-      `Teléfono: ${formData.phone}`;
+  const progressPercent = (currentStep / t.steps.length) * 100;
 
-    const phoneNumber = '41789693111'; // +41 78 969 31 11
+  const handleSubmit = () => {
+    const message = `
+      ${t.confirmation}:\n
+      ${t.serviceType}: ${formData.service}\n
+      ${t.date}: ${formData.date}\n
+      ${t.time}: ${formData.time}\n
+      ${t.pickup}: ${formData.pickup}\n
+      ${t.destination}: ${formData.destination}\n
+      ${t.selectCar}: ${formData.car}\n
+      ${t.fullName}: ${formData.fullName}\n
+      ${t.email}: ${formData.email}\n
+      ${t.phone}: ${formData.phone}
+    `;
+    const phoneNumber = "+5353616391";
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
-    // Abre WhatsApp en nueva pestaña
-    window.open(whatsappURL, '_blank');
-
-    // Cerrar wizard después del envío
+    window.open(whatsappURL, "_blank");
     onClose();
   };
 
-  const progressPercent = (currentStep / steps.length) * 100;
-
-  // Renderizado condicional de cada paso
   const renderStepContent = () => {
     switch (currentStep) {
       case 1:
         return (
           <div className="flex flex-col gap-4">
-            <label className="text-gray-300">Tipo de Servicio</label>
             <select
               name="service"
               value={formData.service}
               onChange={handleChange}
-              className="bg-gray-800 p-3 rounded outline-none focus:ring-2 focus:ring-gold"
+              className="bg-gray-800 font-bebas w-[370px] h-[45px] p-3 rounded-[9.12px] outline-none focus:ring-2 focus:ring-gold"
             >
-              <option value="">Selecciona...</option>
-              <option value="Ejecutivo">Ejecutivo</option>
-              <option value="Niños Especiales">Niños Especiales</option>
-              <option value="Adultos Mayores">Adultos Mayores</option>
-              <option value="Eventos Especiales">Eventos Especiales</option>
+              <option value="">{t.selectOption}</option>
+              {t.services.map((service, index) => (
+                <option key={index} value={service}>
+                  {service}
+                </option>
+              ))}
             </select>
           </div>
         );
       case 2:
         return (
           <div className="flex flex-col gap-4">
-            <div>
-              <label className="text-gray-300">Fecha</label>
-              <input
-                type="date"
-                name="date"
-                value={formData.date}
-                onChange={handleChange}
-                className="bg-gray-800 p-3 rounded outline-none focus:ring-2 focus:ring-gold"
-              />
-            </div>
-            <div>
-              <label className="text-gray-300">Hora</label>
-              <input
-                type="time"
-                name="time"
-                value={formData.time}
-                onChange={handleChange}
-                className="bg-gray-800 p-3 rounded outline-none focus:ring-2 focus:ring-gold"
-              />
-            </div>
+            <input
+              type="date"
+              name="date"
+              value={formData.date}
+              onChange={handleChange}
+              className="bg-gray-800 font-bebas w-[370px] h-[45px] p-3 rounded-[9.12px] outline-none focus:ring-2 focus:ring-gold"
+            />
+            <input
+              type="time"
+              name="time"
+              value={formData.time}
+              onChange={handleChange}
+              className="bg-gray-800 font-bebas w-[370px] h-[45px] p-3 rounded-[9.12px] outline-none focus:ring-2 focus:ring-gold"
+            />
           </div>
         );
       case 3:
         return (
           <div className="flex flex-col gap-4">
-            <label className="text-gray-300">Destino</label>
+            <input
+              type="text"
+              name="pickup"
+              placeholder={t.pickup}
+              value={formData.pickup}
+              onChange={handleChange}
+              className="bg-gray-800 font-bebas w-[370px] h-[45px] p-3 rounded-[9.12px] outline-none focus:ring-2 focus:ring-gold"
+            />
             <input
               type="text"
               name="destination"
-              placeholder="Ciudad, dirección..."
+              placeholder={t.destination}
               value={formData.destination}
               onChange={handleChange}
-              className="bg-gray-800 p-3 rounded outline-none focus:ring-2 focus:ring-gold"
+              className="bg-gray-800 font-bebas w-[370px] h-[45px] p-3 rounded-[9.12px] outline-none focus:ring-2 focus:ring-gold"
             />
-
-            <label className="text-gray-300">Requerimientos Especiales</label>
-            <textarea
-              rows="3"
-              name="specialReqs"
-              value={formData.specialReqs}
-              onChange={handleChange}
-              className="bg-gray-800 p-3 rounded outline-none focus:ring-2 focus:ring-gold"
-            ></textarea>
           </div>
         );
       case 4:
         return (
           <div className="flex flex-col gap-4">
-            <label className="text-gray-300">Nombre Completo</label>
             <input
               type="text"
               name="fullName"
+              placeholder={t.fullName}
               value={formData.fullName}
               onChange={handleChange}
-              className="bg-gray-800 p-3 rounded outline-none focus:ring-2 focus:ring-gold"
+              className="bg-gray-800 font-bebas w-[370px] h-[45px] p-3 rounded-[9.12px] outline-none focus:ring-2 focus:ring-gold"
             />
-
-            <label className="text-gray-300">Correo Electrónico</label>
             <input
               type="email"
               name="email"
+              placeholder={t.email}
               value={formData.email}
               onChange={handleChange}
-              className="bg-gray-800 p-3 rounded outline-none focus:ring-2 focus:ring-gold"
+              className="bg-gray-800 font-bebas w-[370px] h-[45px] p-3 rounded-[9.12px] outline-none focus:ring-2 focus:ring-gold"
             />
-
-            <label className="text-gray-300">Teléfono</label>
             <input
               type="tel"
               name="phone"
+              placeholder={t.phone}
               value={formData.phone}
               onChange={handleChange}
-              className="bg-gray-800 p-3 rounded outline-none focus:ring-2 focus:ring-gold"
+              className="bg-gray-800 font-bebas w-[370px] h-[45px] p-3 rounded-[9.12px] outline-none focus:ring-2 focus:ring-gold"
             />
           </div>
         );
       case 5:
         return (
-          <div className="text-gray-300">
-            <h3 className="text-xl font-bold mb-2 text-gold">Revisión Final</h3>
-            <p><strong>Servicio:</strong> {formData.service}</p>
-            <p><strong>Fecha:</strong> {formData.date}</p>
-            <p><strong>Hora:</strong> {formData.time}</p>
-            <p><strong>Destino:</strong> {formData.destination}</p>
-            <p><strong>Requerimientos:</strong> {formData.specialReqs}</p>
-            <p><strong>Nombre:</strong> {formData.fullName}</p>
-            <p><strong>Email:</strong> {formData.email}</p>
-            <p><strong>Teléfono:</strong> {formData.phone}</p>
+          <div className="text-gray-300 text-left ">
+            <p><strong>{t.serviceType}:</strong> {formData.service}</p>
+            <p><strong>{t.date}:</strong> {formData.date}</p>
+            <p><strong>{t.time}:</strong> {formData.time}</p>
+            <p><strong>{t.pickup}:</strong> {formData.pickup}</p>
+            <p><strong>{t.destination}:</strong> {formData.destination}</p>
+            <p><strong>{t.selectCar}:</strong> {formData.car}</p>
+            <p><strong>{t.fullName}:</strong> {formData.fullName}</p>
+            <p><strong>{t.email}:</strong> {formData.email}</p>
+            <p><strong>{t.phone}:</strong> {formData.phone}</p>
           </div>
         );
       default:
         return null;
     }
   };
+  
 
   return (
-    // Overlay que cubre toda la pantalla
     <div className="fixed inset-0 flex items-center justify-center z-50">
-      {/* Fondo oscurecido */}
-      <div
-        className="absolute inset-0 bg-black bg-opacity-60"
-        onClick={onClose}
-      ></div>
+      <div className="absolute inset-0 bg-black bg-opacity-60" onClick={onClose}></div>
 
-      {/* Contenedor de la tarjeta wizard */}
-      <div className="relative bg-black w-full max-w-xl mx-auto rounded-lg p-6 z-10">
-        <button
-          onClick={onClose}
-          className="absolute top-3 right-3 text-gray-400 hover:text-gray-200"
-        >
+      <div className="relative w-[404px] h-[416px] bg-[#202020] rounded-[11px] shadow-lg p-6 flex flex-col justify-between z-10">
+        <button onClick={onClose} className="absolute top-3 right-3 text-gray-400 hover:text-gray-200">
           ✕
         </button>
 
-        {/* Barra de progreso */}
-        <div className="h-2 bg-gray-700 rounded-full overflow-hidden mb-6">
-          <div
-            className="h-full bg-gold transition-all duration-300"
-            style={{ width: `${progressPercent}%` }}
-          ></div>
+        {/* Título del paso con estilo correcto */}
+        <h3 className="text-gold font-bebas text-[22px] leading-[64.87px] font-bebas text-center">
+          {t.steps[currentStep - 1]}
+        </h3>
+
+        {/* Barra de progreso estilizada */}
+        <div className="w-[369px] h-[5px] bg-gray-700 rounded-[48px] mx-auto mt-2 overflow-hidden">
+          <div className="h-full bg-gold transition-all duration-300" style={{ width: `${progressPercent}%` }}></div>
         </div>
 
-        {/* Contenido del paso */}
-        <div className="bg-gray-900 p-4 rounded">
-          {renderStepContent()}
-        </div>
+        <div className="flex-grow flex items-center justify-center">{renderStepContent()}</div>
 
-        {/* Botones de navegación */}
-        <div className="flex justify-between mt-4">
+        {/* Botones de Control */}
+        <div className="flex justify-between gap-[8.36px] mt-4">
           {currentStep > 1 && (
             <button
               onClick={prevStep}
-              className="bg-gray-700 py-2 px-4 rounded hover:bg-gray-600"
+              className="w-[370px] h-[42px] bg-gray-700 text-white font-bebas rounded-[380.14px] hover:bg-gray-600 transition"
             >
-              Anterior
+              {t.back}
             </button>
           )}
 
-          {currentStep < steps.length ? (
-            <button
-              onClick={nextStep}
-              className="bg-gold text-black py-2 px-4 rounded hover:bg-yellow-600"
-            >
-              Siguiente
-            </button>
-          ) : (
-            <button
-              onClick={handleSubmit}
-              className="bg-green-600 py-2 px-4 rounded hover:bg-green-500"
-            >
-              Enviar a WhatsApp
-            </button>
-          )}
+          <button
+            onClick={currentStep < t.steps.length ? nextStep : handleSubmit}
+            className="w-[370px] h-[42px] bg-gold text-white font-bebas rounded-[380.14px] hover:bg-yellow-600 transition"
+          >
+            {currentStep < t.steps.length ? t.next : t.send} 
+          </button>
         </div>
       </div>
     </div>
