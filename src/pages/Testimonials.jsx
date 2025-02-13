@@ -157,7 +157,7 @@ function Testimonials() {
         <h2 className="text-3xl font-bold text-gold mb-8">{t.title}</h2>
 
         {/* Contenedor de testimonios (animado) */}
-        <div className="relative w-full max-w-3xl mx-auto flex items-center justify-center overflow-hidden min-h-[180px]">
+        <div className="relative w-full max-w-3xl mx-auto flex items-center justify-center overflow-hidden min-h-[300px]">
           <AnimatePresence custom={direction} mode="wait">
             <motion.div
               key={t.testimonials[currentIndex].quote}
@@ -167,7 +167,7 @@ function Testimonials() {
               transition={{ duration: 0.8 }}
               className="absolute w-full text-center bg-transparent p-6 rounded-lg"
             >
-              <p className="text-gray-100 italic text-lg">
+              <p className="text-gris italic text-lg">
                 "{t.testimonials[currentIndex].quote}"
               </p>
               <p className="text-gold font-semibold mt-4">

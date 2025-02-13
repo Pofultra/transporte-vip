@@ -9,7 +9,7 @@ module.exports = {
       colors: {
         // Personaliza tu tono de dorado y azul oscuro
         gold: '#B79358',
-        gris: '#F1F1F1',
+        gris: '#A8A7A7',
         darkBlue: '#001f3f',
       },
       fontFamily: {
