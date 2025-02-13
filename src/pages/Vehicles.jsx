@@ -9,6 +9,12 @@ import sClass1 from "/images/sclass1.webp";
 import sClass2 from "/images/sclass2.webp";
 import eClass1 from "/images/eclass1.webp";
 import eClass2 from "/images/eclass2.webp";
+import bmw1 from "/images/bmw1.webp";
+import bmw2 from "/images/bmw2.webp";
+import bus1 from "/images/bus1.webp";
+import sprinter1 from "/images/sprinter1.webp";
+import sprinter2 from "/images/sprinter2.webp";
+
 
 // Traducciones
 const translations = {
@@ -22,6 +28,9 @@ const translations = {
       { name: "Mercedes V Class", passengers: 7, transmission: "Automatic", images: [vClass1, vClass2] },
       { name: "Mercedes S-Class", passengers: 3, transmission: "Automatic", images: [sClass1, sClass2] },
       { name: "Mercedes E-Class", passengers: 3, transmission: "Automatic", images: [eClass1, eClass2] },
+      { name: "BMW 520 D M Paket", passengers: 3, transmission: "Automatic", images: [bmw1, bmw2] },
+      { name: "Mercedes Sprinter ", passengers: 15, transmission: "Mechanical", images: [sprinter1, sprinter2] },
+      { name: "Buss", passengers: 50, transmission: "Mechanical", images: [bus1] },
     ],
   },
 };

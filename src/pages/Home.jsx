@@ -100,13 +100,13 @@ function Home({ onOpenWizard }) {
       </div>
       <button
         onClick={onOpenWizard}
-        className="absolute w-[146px] h-[55px] top-[393px] left-[20px] flex items-center justify-center gap-2.5 bg-gold text-white font-bold rounded-full shadow-md hover:bg-blue-600 transition duration-300"
+        className="absolute w-[146px] h-[55px] top-[393px] left-[20px] z-10 flex items-center justify-center gap-2.5 bg-gold text-white font-bebas rounded-full shadow-md hover:bg-blue-600 transition duration-300 md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2"
       >
         {t.button} <i className="ri-arrow-right-line"></i>
       </button>
 
       {/* Estadísticas en la parte inferior */}
-      <div className="relative z-10 bottom-4 w-full flex justify-center gap-2 text-center text-lg text-xl font-semibebas text-opacity-70 pt-40 lg:pt-0  mt-40 lg:mt-0  ">
+      <div className="relative z-10 bottom-4 w-full flex justify-center gap-2 text-center text-lg text-xl font-semibebas text-opacity-70 pt-40  mt-40  ">
         <div>
           <span className="block text-2xl text-3xl font-bebas text-gold">
             10K+
@@ -132,7 +132,7 @@ function Home({ onOpenWizard }) {
           </span>
         </div>
       </div>
-      <div className="absolute w-[55px] h-[61px] top-[865px] left-[193px] flex flex-col items-center justify-center text-center text-white z-10">
+      <div className="absolute w-[55px] h-[61px] top-[865px]  flex flex-col items-center justify-center text-center text-white z-10">
         <span className="text-xs font-bold">SCROLL</span>
         <i className="ri-arrow-down-s-line animate-bounce mt-1"></i>
       </div>
