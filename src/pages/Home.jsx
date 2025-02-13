@@ -28,7 +28,7 @@ function Home({ onOpenWizard }) {
       </div>
 
       {/* Contenido principal */}
-      <div className="absolute z-10 text-center px-6 max-w-[404px] w-[404px] h-[120px] top-[180px] left-[18px]">
+      <div className="absolute z-10 text-center px-6 max-w-[404px] w-[404px] h-[120px] top-[180px] ">
         <h1 className="font-bebas font-bold text-[39px]  tracking-normal ">
           Luxury Transport
         </h1>

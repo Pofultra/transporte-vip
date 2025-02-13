@@ -1,5 +1,5 @@
 import React from "react";
-import about_img from "/images/about.webp";
+import about_img from "/images/about2.webp";
 
 function About() {
   const features = [
@@ -38,7 +38,7 @@ function About() {
           <img
             src={about_img}
             alt="Sobre Nosotros"
-            className="rounded-2xl shadow-lg object-cover w-full h-full opacity-70"
+            className="rounded-2xl shadow-lg object-cover w-full h-full opacity-70 grayscale"
           />
         </div>
 
