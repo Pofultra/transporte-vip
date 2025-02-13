@@ -126,20 +126,30 @@ function WizardModal({ onClose }) {
       case 2:
         return (
           <div className="flex flex-col gap-4">
-            <input
-              type="date"
-              name="date"
-              value={formData.date}
-              onChange={handleChange}
-              className="bg-gray-800 font-bebas w-[370px] h-[45px] p-3 rounded-[9.12px] outline-none focus:ring-2 focus:ring-gold"
-            />
-            <input
-              type="time"
-              name="time"
-              value={formData.time}
-              onChange={handleChange}
-              className="bg-gray-800 font-bebas w-[370px] h-[45px] p-3 rounded-[9.12px] outline-none focus:ring-2 focus:ring-gold"
-            />
+            <div className="relative">
+              <input
+                type="date"
+                name="date"
+                value={formData.date}
+                onChange={handleChange}
+                className="bg-gray-800 font-bebas w-[370px] h-[45px] p-3 rounded-[9.12px] outline-none focus:ring-2 focus:ring-gold"
+              />
+              <label className="absolute top-0 left-0 right-0 bottom-0 pointer-events-none flex items-center justify-center text-gray-400">
+                {t.selectDate}
+              </label>
+            </div>
+            <div className="relative">
+              <input
+                type="time"
+                name="time"
+                value={formData.time}
+                onChange={handleChange}
+                className="bg-gray-800 font-bebas w-[370px] h-[45px] p-3 rounded-[9.12px] outline-none focus:ring-2 focus:ring-gold"
+              />
+              <label className="absolute top-0 left-0 right-0 bottom-0 pointer-events-none flex items-center justify-center text-gray-400">
+                {t.selectTime}
+              </label>
+            </div>
           </div>
         );
       case 3:
