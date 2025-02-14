@@ -164,7 +164,7 @@ function About() {
       </div>
 
       {/* Sub-sección de características */}
-      <div className="container mx-auto px-4 mt-10">
+      <div className="container mx-auto px-4 mt-10 mr-2 ml-2">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {t.features.map((item, index) => (
             <div key={index} className="flex flex-col items-center">

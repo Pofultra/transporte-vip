@@ -100,7 +100,7 @@ function Home({ onOpenWizard }) {
       </div>
       <button
         onClick={onOpenWizard}
-        className="absolute w-[146px] h-[55px] top-[393px] left-[20px] z-10 flex items-center justify-center gap-2.5 bg-gold text-white font-bebas rounded-full shadow-md hover:bg-blue-600 transition duration-300 md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2"
+        className="absolute w-[146px] h-[55px] top-[393px] left-[20px] z-20 flex items-center justify-center gap-2.5 bg-gold text-white font-bebas rounded-full shadow-md hover:bg-blue-600 transition duration-300 md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2"
       >
         {t.button} <i className="ri-arrow-right-line"></i>
       </button>

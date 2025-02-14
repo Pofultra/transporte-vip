@@ -3,8 +3,101 @@ import { useLanguage } from "../context/LanguageContext";
 
 // Traducciones
 const translations = {
+  de: {
+    steps: [
+      "Dienstleistungstyp",
+      "Datum & Uhrzeit",
+      "Fahrtdetails",
+      "Kontakt",
+      "Bestätigung",
+    ],
+    selectOption: "Wählen Sie eine Option",
+    next: "WEITER",
+    back: "ZURÜCK",
+    send: "SENDEN",
+    close: "Schließen",
+    serviceType: "Dienstleistungstyp",
+    date: "Datum",
+    time: "Uhrzeit",
+    pickup: "Abholort",
+    destination: "Zielort",
+    selectCar: "Fahrzeug auswählen",
+    contact: "Kontaktinformationen",
+    fullName: "Vollständiger Name",
+    email: "E-Mail",
+    phone: "Telefonnummer",
+    services: [
+      "Executive",
+      "Kinder mit besonderen Bedürfnissen",
+      "Senioren",
+      "Spezielle Veranstaltungen",
+    ],
+    cars: [
+      { name: "Mercedes V-Class", capacity: 7, rate: 2.5 },
+      { name: "Mercedes S-Class", capacity: 4, rate: 3.0 },
+      { name: "Mercedes E-Class", capacity: 4, rate: 2.8 },
+      { name: "BMW 520 D M Paket", capacity: 4, rate: 2.7 },
+      { name: "Mercedes Sprinter", capacity: 16, rate: 4.0 },
+      { name: "Bus (50 Passagiere)", capacity: 50, rate: 5.0 },
+      { name: "Tesla", capacity: 5, rate: 3.5 },
+    ],
+    confirmation: "Überprüfen Sie Ihre Daten",
+    capacity: "Kapazität",
+    passengers: "Passagiere",
+    rate: "Preis",
+  },
+  fr: {
+    steps: [
+      "Type de service",
+      "Date et heure",
+      "Détails du trajet",
+      "Contact",
+      "Confirmation",
+    ],
+    selectOption: "Sélectionnez une option",
+    next: "SUIVANT",
+    back: "RETOUR",
+    send: "ENVOYER",
+    close: "Fermer",
+    serviceType: "Type de service",
+    date: "Date",
+    time: "Heure",
+    pickup: "Lieu de prise en charge",
+    destination: "Destination",
+    selectCar: "Sélectionner un véhicule",
+    contact: "Informations de contact",
+    fullName: "Nom complet",
+    email: "Email",
+    phone: "Numéro de téléphone",
+    services: [
+      "Exécutif",
+      "Enfants à besoins spéciaux",
+      "Personnes âgées",
+      "Événements spéciaux",
+    ],
+    cars: [
+      { name: "Mercedes V-Class", capacity: 7, rate: 2.5 },
+      { name: "Mercedes S-Class", capacity: 4, rate: 3.0 },
+      { name: "Mercedes E-Class", capacity: 4, rate: 2.8 },
+      { name: "BMW 520 D M Paket", capacity: 4, rate: 2.7 },
+      { name: "Mercedes Sprinter", capacity: 16, rate: 4.0 },
+      { name: "Bus (50 passagers)", capacity: 50, rate: 5.0 },
+      { name: "Tesla", capacity: 5, rate: 3.5 },
+    ],
+    confirmation: "Vérifiez vos informations",
+    capacity: "Capacité",
+    passengers: "passagers",
+    rate: "Tarif",
+  },
+
   en: {
-    steps: ["Service Type", "Date & Time", "Trip Details", "Contact", "Review Your Details"],
+    steps: [
+      "Service Type",
+      "Date & Time",
+      "Trip Details",
+      "Contact",
+      "Review Your Details",
+    ],
     selectOption: "Select an option",
     next: "NEXT",
     back: "BACK",
@@ -20,12 +113,36 @@ const translations = {
     fullName: "Full Name",
     email: "Email",
     phone: "Phone Number",
-    services: ["Executive", "Special Needs Children", "Elderly", "Special Events"],
-    cars: ["Mercedes V-Class", "Mercedes S-Class", "Mercedes E-Class"],
+    services: [
+      "Executive",
+      "Special Needs Children",
+      "Elderly",
+      "Special Events",
+    ],
+
     confirmation: "Review Your Details",
+    cars: [
+      { name: "Mercedes V-Class", capacity: 7, rate: 2.5 },
+      { name: "Mercedes S-Class", capacity: 4, rate: 3.0 },
+      { name: "Mercedes E-Class", capacity: 4, rate: 2.8 },
+      { name: "BMW 520 D M Paket", capacity: 4, rate: 2.7 },
+      { name: "Mercedes Sprinter", capacity: 16, rate: 4.0 },
+      { name: "Bus", capacity: 50, rate: 5.0 },
+      { name: "Tesla", capacity: 5, rate: 3.5 },
+    ],
+
+    capacity: "Capacity",
+    passengers: "passengers",
+    rate: "Rate",
   },
   es: {
-    steps: ["Tipo de Servicio", "Fecha y Hora", "Detalles del Viaje", "Contacto", "Confirmación"],
+    steps: [
+      "Tipo de Servicio",
+      "Fecha y Hora",
+      "Detalles del Viaje",
+      "Contacto",
+      "Confirmación",
+    ],
     selectOption: "Selecciona una opción",
     next: "SIGUIENTE",
     back: "ATRÁS",
@@ -41,9 +158,27 @@ const translations = {
     fullName: "Nombre Completo",
     email: "Correo Electrónico",
     phone: "Teléfono",
-    services: ["Ejecutivo", "Niños Especiales", "Adultos Mayores", "Eventos Especiales"],
-    cars: ["Mercedes V-Class", "Mercedes S-Class", "Mercedes E-Class"],
+    services: [
+      "Ejecutivo",
+      "Niños Especiales",
+      "Adultos Mayores",
+      "Eventos Especiales",
+    ],
+
     confirmation: "Revisa tu Información",
+    cars: [
+      { name: "Mercedes V-Class", capacity: 7, rate: 2.5 },
+      { name: "Mercedes S-Class", capacity: 4, rate: 3.0 },
+      { name: "Mercedes E-Class", capacity: 4, rate: 2.8 },
+      { name: "BMW 520 D M Paket", capacity: 4, rate: 2.7 },
+      { name: "Mercedes Sprinter", capacity: 16, rate: 4.0 },
+      { name: "Bus (50 pasajeros)", capacity: 50, rate: 5.0 },
+      { name: "Tesla", capacity: 5, rate: 3.5 },
+    ],
+
+    capacity: "Capacidad",
+    passengers: "pasajeros",
+    rate: "Tarifa",
   },
 };
 
@@ -58,7 +193,7 @@ function WizardModal({ onClose }) {
     time: "",
     pickup: "",
     destination: "",
-    car: "",
+    car: null, // Almacenará el objeto completo del vehículo seleccionado
     fullName: "",
     email: "",
     phone: "",
@@ -126,7 +261,15 @@ function WizardModal({ onClose }) {
       case 2:
         return (
           <div className="flex flex-col gap-4">
+            {/* Campo de Fecha */}
             <div className="relative">
+              <label
+                className={`absolute top-1/2 left-3 transform -translate-y-1/2 text-gray-400 transition-opacity ${
+                  formData.date ? "opacity-0" : "opacity-100"
+                }`}
+              >
+                {t.date}
+              </label>
               <input
                 type="date"
                 name="date"
@@ -134,11 +277,17 @@ function WizardModal({ onClose }) {
                 onChange={handleChange}
                 className="bg-gray-800 font-bebas w-[370px] h-[45px] p-3 rounded-[9.12px] outline-none focus:ring-2 focus:ring-gold"
               />
-              <label className="absolute top-0 left-0 right-0 bottom-0 pointer-events-none flex items-center justify-center text-gray-400">
-                {t.selectDate}
-              </label>
             </div>
+
+            {/* Campo de Hora */}
             <div className="relative">
+              <label
+                className={`absolute top-1/2 left-3 transform -translate-y-1/2 text-gray-400 transition-opacity ${
+                  formData.time ? "opacity-0" : "opacity-100"
+                }`}
+              >
+                {t.time}
+              </label>
               <input
                 type="time"
                 name="time"
@@ -146,9 +295,6 @@ function WizardModal({ onClose }) {
                 onChange={handleChange}
                 className="bg-gray-800 font-bebas w-[370px] h-[45px] p-3 rounded-[9.12px] outline-none focus:ring-2 focus:ring-gold"
               />
-              <label className="absolute top-0 left-0 right-0 bottom-0 pointer-events-none flex items-center justify-center text-gray-400">
-                {t.selectTime}
-              </label>
             </div>
           </div>
         );
@@ -171,6 +317,24 @@ function WizardModal({ onClose }) {
               onChange={handleChange}
               className="bg-gray-800 font-bebas w-[370px] h-[45px] p-3 rounded-[9.12px] outline-none focus:ring-2 focus:ring-gold"
             />
+            <select
+              name="car"
+              value={formData.car?.name || ""}
+              onChange={(e) => {
+                const selectedCar = t.cars.find(
+                  (car) => car.name === e.target.value
+                );
+                setFormData((prev) => ({ ...prev, car: selectedCar }));
+              }}
+              className="bg-gray-800 font-bebas w-[370px] h-[45px] p-3 rounded-[9.12px] outline-none focus:ring-2 focus:ring-gold"
+            >
+              <option value="">{t.selectOption}</option>
+              {t.cars.map((car, index) => (
+                <option key={index} value={car.name}>
+                  {`${car.name} (${car.capacity} ${t.passengers}, ${car.rate} CHF/km)`}
+                </option>
+              ))}
+            </select>
           </div>
         );
       case 4:
@@ -204,30 +368,60 @@ function WizardModal({ onClose }) {
         );
       case 5:
         return (
-          <div className="text-gray-300 text-left ">
-            <p><strong>{t.serviceType}:</strong> {formData.service}</p>
-            <p><strong>{t.date}:</strong> {formData.date}</p>
-            <p><strong>{t.time}:</strong> {formData.time}</p>
-            <p><strong>{t.pickup}:</strong> {formData.pickup}</p>
-            <p><strong>{t.destination}:</strong> {formData.destination}</p>
-            <p><strong>{t.selectCar}:</strong> {formData.car}</p>
-            <p><strong>{t.fullName}:</strong> {formData.fullName}</p>
-            <p><strong>{t.email}:</strong> {formData.email}</p>
-            <p><strong>{t.phone}:</strong> {formData.phone}</p>
+          <div className="text-gray-300 text-left">
+            <p>
+              <strong>{t.serviceType}:</strong> {formData.service}
+            </p>
+            <p>
+              <strong>{t.date}:</strong> {formData.date}
+            </p>
+            <p>
+              <strong>{t.time}:</strong> {formData.time}
+            </p>
+            <p>
+              <strong>{t.pickup}:</strong> {formData.pickup}
+            </p>
+            <p>
+              <strong>{t.destination}:</strong> {formData.destination}
+            </p>
+            <p>
+              <strong>{t.selectCar}:</strong> {formData.car?.name || "N/A"}
+            </p>
+            <p>
+              <strong>{t.capacity}:</strong> {formData.car?.capacity || "N/A"}{" "}
+              {t.passengers}
+            </p>
+            <p>
+              <strong>{t.rate}:</strong> {formData.car?.rate || "N/A"} CHF/km
+            </p>
+            <p>
+              <strong>{t.fullName}:</strong> {formData.fullName}
+            </p>
+            <p>
+              <strong>{t.email}:</strong> {formData.email}
+            </p>
+            <p>
+              <strong>{t.phone}:</strong> {formData.phone}
+            </p>
           </div>
         );
       default:
         return null;
     }
   };
-  
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
-      <div className="absolute inset-0 bg-black bg-opacity-60" onClick={onClose}></div>
+      <div
+        className="absolute inset-0 bg-black bg-opacity-60"
+        onClick={onClose}
+      ></div>
 
       <div className="relative w-[404px] h-[416px] bg-[#202020] rounded-[11px] shadow-lg p-6 flex flex-col justify-between z-10">
-        <button onClick={onClose} className="absolute top-3 right-3 text-gray-400 hover:text-gray-200">
+        <button
+          onClick={onClose}
+          className="absolute top-3 right-3 text-gray-400 hover:text-gray-200"
+        >
           ✕
         </button>
 
@@ -238,10 +432,15 @@ function WizardModal({ onClose }) {
 
         {/* Barra de progreso estilizada */}
         <div className="w-[369px] h-[5px] bg-gray-700 rounded-[48px] mx-auto mt-2 overflow-hidden">
-          <div className="h-full bg-gold transition-all duration-300" style={{ width: `${progressPercent}%` }}></div>
+          <div
+            className="h-full bg-gold transition-all duration-300"
+            style={{ width: `${progressPercent}%` }}
+          ></div>
         </div>
 
-        <div className="flex-grow flex items-center justify-center">{renderStepContent()}</div>
+        <div className="flex-grow flex items-center justify-center">
+          {renderStepContent()}
+        </div>
 
         {/* Botones de Control */}
         <div className="flex justify-between gap-[8.36px] mt-4">
@@ -258,7 +457,7 @@ function WizardModal({ onClose }) {
             onClick={currentStep < t.steps.length ? nextStep : handleSubmit}
             className="w-[370px] h-[42px] bg-gold text-white font-bebas rounded-[380.14px] hover:bg-yellow-600 transition"
           >
-            {currentStep < t.steps.length ? t.next : t.send} 
+            {currentStep < t.steps.length ? t.next : t.send}
           </button>
         </div>
       </div>
