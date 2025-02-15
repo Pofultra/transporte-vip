@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { LanguageProvider } from "./context/LanguageContext";
+import { HelmetProvider } from "react-helmet-async"; 
 
 // Secciones del sitio
 import Home from "./pages/Home";
@@ -22,6 +23,7 @@ function App() {
   const closeWizard = () => setShowWizard(false);
 
   return (
+    <HelmetProvider>
     <LanguageProvider>
       <div className="bg-black text-white font-sans">
         <Navbar onOpenWizard={openWizard} />
@@ -36,6 +38,7 @@ function App() {
         {showWizard && <WizardModal onClose={closeWizard} />}
       </div>
     </LanguageProvider>
+    </HelmetProvider>
   );
 }
 
