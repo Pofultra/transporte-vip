@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { Helmet } from "react-helmet-async";
 
+import LanguageSelector from "./LanguageSelector";
+
 // Traducciones en cuatro idiomas
 const translations = {
   en: {
@@ -252,6 +254,8 @@ function Navbar({ onOpenWizard }) {
         >
           {t.contact}
         </a>
+        {/* Bloque derecho (selector de idioma) */}
+        <LanguageSelector language={language} setLanguage={setLanguage} />
       </div>
     </>
   );

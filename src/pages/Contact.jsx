@@ -114,7 +114,7 @@ function Contact() {
 
                   {/* Instagram */}
                   <a
-                    href="https://www.instagram.com/TuEmpresa"
+                    href="https://www.instagram.com/jayscomfort.luxury?igsh=MWtjeWM2cms3Z3dmMg=="
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-gold transition"

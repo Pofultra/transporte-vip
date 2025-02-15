@@ -1,5 +1,7 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { useLanguage } from "../context/LanguageContext";
+import LanguageSelector from "./LanguageSelector";
 
 // Traducciones en cuatro idiomas
 const translations = {
@@ -34,41 +36,31 @@ function Footer() {
   const t = translations[language] || translations["en"]; // Usa inglés por defecto si no hay idioma definido
 
   return (
-    <footer className="bg-black text-gray-400 py-4 mt-16">
-      <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
-        {/* Bloque izquierdo (texto y links) */}
-        <div className="text-center md:text-left mb-4 md:mb-0">
-          <p>{t.rights}</p>
-          <div className="flex justify-center md:justify-start gap-4 mt-2">
-            <a href="#privacy" className="hover:text-gold">
-              {t.privacy}
-            </a>
-            <a href="#terms" className="hover:text-gold">
-              {t.terms}
-            </a>
+    <>
+      <Helmet>
+        <title>VIPTransport - Luxury Transportation Services</title>
+        <meta
+          name="description"
+          content="Experience luxury transportation services with VIPTransport. Book now for your next trip to Switzerland."
+        />
+        <meta
+          name="keywords"
+          content="luxury transport, switzerland, vip transport, private tours"
+        />
+        <meta name="author" content="VIPTransport" />
+      </Helmet>
+      <footer className="bg-black text-gray-400 py-4 mt-16">
+        <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
+          {/* Bloque izquierdo (texto y links) */}
+          <div className="text-center md:text-left mb-4 md:mb-0">
+            <p>{t.rights}</p>
           </div>
-        </div>
 
-        {/* Bloque derecho (selector de idioma con ícono) */}
-        <div className="flex items-center gap-2">
-          <i className="ri-earth-line text-gold text-xl"></i>
-          <label htmlFor="language-select" className="sr-only">
-            {t.language}
-          </label>
-          <select
-            id="language-select"
-            value={language}
-            onChange={(e) => setLanguage(e.target.value)}
-            className="bg-gray-800 text-white px-3 py-1 rounded-md border border-gray-600"
-          >
-            <option value="es">Español</option>
-            <option value="en">English</option>
-            <option value="fr">Français</option>
-            <option value="de">Deutsch</option>
-          </select>
+          {/* Bloque derecho (selector de idioma) */}
+          <LanguageSelector language={language} setLanguage={setLanguage} />
         </div>
-      </div>
-    </footer>
+      </footer>
+    </>
   );
 }
 
