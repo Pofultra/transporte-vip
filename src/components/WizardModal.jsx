@@ -226,14 +226,15 @@ function WizardModal({ onClose }) {
       ${t.time}: ${formData.time}\n
       ${t.pickup}: ${formData.pickup}\n
       ${t.destination}: ${formData.destination}\n
-      ${t.selectCar}: ${formData.car}\n
+      ${t.selectCar}: ${formData.car?.name || "N/A"}\n
+      ${t.capacity}: ${formData.car?.capacity || "N/A"} ${t.passengers}\n
+      ${t.rate}: ${formData.car?.rate || "N/A"} CHF/km\n
       ${t.fullName}: ${formData.fullName}\n
       ${t.email}: ${formData.email}\n
       ${t.phone}: ${formData.phone}
     `;
     const phoneNumber = "+5353616391";
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-
     window.open(whatsappURL, "_blank");
     onClose();
   };
