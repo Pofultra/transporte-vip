@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "../context/LanguageContext";
+import { Helmet } from "react-helmet-async";
 import preTestimonios from "/images/pretestimonio2.webp";
 
 const translations = {
@@ -129,55 +130,75 @@ function Testimonials() {
   }, [t.testimonials.length]);
 
   return (
-    <section id="testimonials" className="bg-black text-white py-16 relative">
-      {/* Imagen superior con bandas de difuminación */}
-      <div className="relative w-full flex justify-center mb-8 overflow-hidden">
-        <img
-          src={preTestimonios}
-          alt="Luxury Car"
-          className="w-full max-w-3xl object-cover grayscale"
-        />
+    <>
+      {/* Metadatos SEO */}
+      <Helmet>
+        <title>{t.title} - VIPTransport</title>
+        <meta name="description" content={`Discover what our clients say about us: ${t.testimonials.map((t) => t.author).join(", ")}`} />
+      </Helmet>
 
-        {/* Bandas de difuminación superior e inferior */}
-        <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-black to-transparent pointer-events-none z-10"></div>
-        <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black to-transparent pointer-events-none z-10"></div>
-
-        {/* Texto sobre la imagen (siempre por encima) */}
-        <div className="absolute top-10 w-[404px] h-[82px] text-center z-20">
-          <h3 className="font-bebas text-[22px] leading-[32px] font-bold text-white uppercase">
-            {t.trust}
-          </h3>
-          <p className="font-bebas text-[22px] leading-[33px] font-bold text-gris uppercase">
-            {t.excellence}
-          </p>
+      {/* Contenido principal */}
+      <section
+        id="testimonials"
+        className="bg-black text-white py-16 relative"
+        role="region"
+        aria-labelledby="testimonials-title"
+      >
+        {/* Imagen superior con bandas de difuminación */}
+        <div className="relative w-full flex justify-center mb-8 overflow-hidden">
+          <img
+            src={preTestimonios}
+            alt="Luxury Car - VIP Transport in Zurich"
+            className="w-full max-w-3xl object-cover grayscale hover:grayscale-0 transition duration-300"
+            loading="lazy"
+          />
+          {/* Bandas de difuminación superior e inferior */}
+          <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-black to-transparent pointer-events-none z-10"></div>
+          <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black to-transparent pointer-events-none z-10"></div>
+          {/* Texto sobre la imagen (siempre por encima) */}
+          <div className="absolute top-10 w-[404px] h-[82px] text-center z-20">
+            <h3 className="font-bebas text-[22px] leading-[32px] font-bold text-white uppercase">
+              {t.trust}
+            </h3>
+            <p className="font-bebas text-[22px] leading-[33px] font-bold text-gris uppercase">
+              {t.excellence}
+            </p>
+          </div>
         </div>
-      </div>
 
-      <div className="container mx-auto px-4 text-center">
-        <h2 className="text-3xl font-bold text-gold mb-8">{t.title}</h2>
-
-        {/* Contenedor de testimonios (animado) */}
-        <div className="relative w-full max-w-3xl mx-auto flex items-center justify-center overflow-hidden min-h-[300px]">
-          <AnimatePresence custom={direction} mode="wait">
-            <motion.div
-              key={t.testimonials[currentIndex].quote}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -50 }}
-              transition={{ duration: 0.8 }}
-              className="absolute w-full text-center bg-transparent p-6 rounded-lg"
-            >
-              <p className="text-gris italic text-lg">
-                "{t.testimonials[currentIndex].quote}"
-              </p>
-              <p className="text-gold font-semibold mt-4">
-                {t.testimonials[currentIndex].author}
-              </p>
-            </motion.div>
-          </AnimatePresence>
+        {/* Contenedor de testimonios */}
+        <div className="container mx-auto px-4 text-center">
+          <h2
+            id="testimonials-title"
+            className="text-3xl font-bold text-gold mb-8"
+          >
+            {t.title}
+          </h2>
+          {/* Contenedor de testimonios (animado) */}
+          <div className="relative w-full max-w-3xl mx-auto flex items-center justify-center overflow-hidden min-h-[300px]">
+            <AnimatePresence custom={direction} mode="wait">
+              <motion.div
+                key={t.testimonials[currentIndex].quote}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -50 }}
+                transition={{ duration: 0.8 }}
+                className="absolute w-full text-center bg-transparent p-6 rounded-lg"
+                role="article"
+                aria-label={`Testimonial by ${t.testimonials[currentIndex].author}`}
+              >
+                <p className="text-gris italic text-lg">
+                  "{t.testimonials[currentIndex].quote}"
+                </p>
+                <p className="text-gold font-semibold mt-4">
+                  {t.testimonials[currentIndex].author}
+                </p>
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { useLanguage } from "../context/LanguageContext";
 import about_img from "/images/about2.webp";
+import { Helmet } from "react-helmet-async";
 
 // Traducciones en cuatro idiomas
 const translations = {
@@ -119,7 +120,7 @@ const translations = {
       {
         title: "Professionalität",
         description:
-          "Hochqualifizierte Fahrer, Pünktlichkeit und Einhaltung höchster Standards.",
+          "Hochqualifizierte Fahrer, Pünctlichkeit und Einhaltung höchster Standards.",
         icon: "ri-briefcase-line",
       },
       {
@@ -143,45 +144,67 @@ function About() {
   const t = translations[language] || translations["en"];
 
   return (
-    <section id="about" className="bg-black text-white py-16 mt-16 flex flex-col items-center">
-      {/* Texto */}
-      <div className="w-[404px] h-auto text-center mb-6">
-        <h2 className="font-bebas font-bold text-[28px] leading-[64.87px] text-gold">
+    <>
+      {/* Metadatos SEO */}
+      <Helmet>
+        <title>{t.title} - VIPTransport</title>
+        <meta name="description" content={t.description1} />
+      </Helmet>
+
+      {/* Contenido principal */}
+      <section
+        id="about"
+        className="bg-black text-white py-16 mt-16 flex flex-col items-center"
+        role="region"
+        aria-labelledby="about-title"
+      >
+        {/* Título */}
+        <h2
+          id="about-title"
+          className="font-bebas font-bold text-[28px] leading-[64.87px] text-gold mb-6 text-center"
+        >
           {t.title}
         </h2>
-        <p class="font-semibold text-[18px] leading-[38px] text-gray-300 mx-4">
-          {t.description1}
-        </p>
-      </div>
 
-      {/* Imagen */}
-      <div className="w-[404px] h-[216px] overflow-hidden rounded-t-[15px]">
-        <img
-          src={about_img}
-          alt={t.title}
-          className="w-full h-full object-cover grayscale"
-        />
-      </div>
-
-      {/* Sub-sección de características */}
-      <div className="container mx-auto px-4 mt-10 ">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          {t.features.map((item, index) => (
-            <div key={index} className="flex flex-col items-center">
-              <i
-                className={`${item.icon} text-gold text-4xl mb-3`}
-                aria-hidden="true"
-              ></i>
-              <h3 className="text-xl font-semibold">{item.title}</h3>
-              <p className="text-gray-300 max-w-xs">{item.description}</p>
-            </div>
-          ))}
+        {/* Descripción */}
+        <div className="w-[404px] h-auto text-center mb-6">
+          <p className="font-semibold text-[18px] leading-[38px] text-gray-300 mx-4">
+            {t.description1}
+          </p>
         </div>
-      </div>
-    </section>
+
+        {/* Imagen */}
+        <div className="w-[404px] h-[216px] overflow-hidden rounded-t-[15px]">
+          <img
+            src={about_img}
+            alt={`${t.title} - Luxury Transport in Zurich`}
+            className="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-300"
+            loading="lazy"
+          />
+        </div>
+
+        {/* Características */}
+        <div className="container mx-auto px-4 mt-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            {t.features.map((item, index) => (
+              <div
+                key={index}
+                className="flex flex-col items-center"
+                role="listitem"
+              >
+                <i
+                  className={`${item.icon} text-gold text-4xl mb-3 transition duration-300 hover:text-yellow-400`}
+                  aria-hidden="true"
+                ></i>
+                <h3 className="text-xl font-semibold">{item.title}</h3>
+                <p className="text-gray-300 max-w-xs">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
 
 export default About;
-
-

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "../context/LanguageContext";
-
+import { Helmet } from "react-helmet-async";
 // Traducciones
 const translations = {
   en: {
@@ -186,14 +186,13 @@ const translations = {
           "Oui, vous pouvez modifier ou annuler votre réservation conformément à nos politiques d'annulation. Consultez les conditions sur notre site web ou contactez-nous pour plus d'informations.",
       },
       {
-        question:
-          "Disposez-vous de sièges bébé ou rehausseurs pour enfants ?",
+        question: "Disposez-vous de sièges bébé ou rehausseurs pour enfants ?",
         answer:
           "Oui, nous proposons des sièges de sécurité pour bébés et enfants sur demande, sans coût supplémentaire.",
       },
     ],
   },
-de: {
+  de: {
     title: "FAQ",
     faqs: [
       {
@@ -250,18 +249,16 @@ de: {
           "Ja, Sie können Ihre Reservierung gemäß unseren Stornierungsrichtlinien ändern oder stornieren. Überprüfen Sie die Bedingungen auf unserer Website oder kontaktieren Sie uns für weitere Informationen.",
       },
       {
-        question:
-          "Haben Sie Babysitze oder Kindersitzerhöhungen?",
+        question: "Haben Sie Babysitze oder Kindersitzerhöhungen?",
         answer:
           "Ja, wir bieten auf Anfrage Babysitze und Kindersicherheitssitze kostenlos an.",
       },
     ],
   },
 };
-
 function FAQ() {
   const { language } = useLanguage();
-  const t = translations[language];
+  const t = translations[language] || translations["en"];
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggleFAQ = (index) => {
@@ -269,34 +266,68 @@ function FAQ() {
   };
 
   return (
-    <section id="faq" className="bg-black text-white py-16 text-center">
-      <div className="container mx-auto px-4 md:max-w-xl lg:max-w-2xl">
-        <h2 className="text-3xl font-bold text-gold mb-8">{t.title}</h2>
-        <div className="space-y-6">
-          {t.faqs.map((item, index) => (
-            <div key={index} className="text-center">
-              <button
-                onClick={() => toggleFAQ(index)}
-                className="w-full text-lg font-semibold text-gold"
-              >
-                {item.question}
-              </button>
-              {openIndex === index && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="text-gray-300 mt-2"
+    <>
+      {/* Metadatos SEO */}
+      <Helmet>
+        <title>{t.title} - VIPTransport</title>
+        <meta
+          name="description"
+          content={`Frequently asked questions about our luxury transport services: ${t.faqs.map((faq) => faq.question).join(", ")}`}
+        />
+      </Helmet>
+
+      {/* Contenido principal */}
+      <section
+        id="faq"
+        className="bg-black text-white py-16 text-center"
+        role="region"
+        aria-labelledby="faq-title"
+      >
+        <div className="container mx-auto px-4 md:max-w-xl lg:max-w-2xl">
+          {/* Título */}
+          <h2 id="faq-title" className="text-3xl font-bold text-gold mb-8">
+            {t.title}
+          </h2>
+
+          {/* Lista de preguntas frecuentes */}
+          <div className="space-y-6">
+            {t.faqs.map((item, index) => (
+              <div key={index} className="text-center">
+                {/* Botón de pregunta */}
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full text-lg font-semibold text-gold flex items-center justify-between"
+                  aria-expanded={openIndex === index}
+                  aria-controls={`faq-answer-${index}`}
                 >
-                  {item.answer}
-                </motion.div>
-              )}
-            </div>
-          ))}
+                  <span>{item.question}</span>
+                  <i
+                    className={`ri-arrow-down-s-line transition-transform ${
+                      openIndex === index ? "rotate-180" : ""
+                    }`}
+                    aria-hidden="true"
+                  ></i>
+                </button>
+
+                {/* Respuesta animada */}
+                {openIndex === index && (
+                  <motion.div
+                    id={`faq-answer-${index}`}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="text-gray-300 mt-2"
+                  >
+                    {item.answer}
+                  </motion.div>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 

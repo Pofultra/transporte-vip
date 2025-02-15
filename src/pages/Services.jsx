@@ -1,5 +1,6 @@
 import React from "react";
 import { useLanguage } from "../context/LanguageContext";
+import { Helmet } from "react-helmet-async";
 
 // Traducciones en cuatro idiomas
 const translations = {
@@ -110,24 +111,58 @@ function Services() {
   const t = translations[language] || translations["en"]; // Si el idioma no está definido, usa inglés por defecto.
 
   return (
-    <section id="services" className="bg-black text-white py-16">
-      <div className="container mx-auto px-4 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-gold mb-8">{t.title}</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {t.services.map((service, index) => (
-            <div
-              key={index}
-              className="bg-gray-900 p-6 rounded-xl shadow-lg flex flex-col items-center text-center transition transform hover:scale-105 hover:bg-gray-800"
-            >
-              <i className={`${service.icon} text-gold text-4xl`} aria-hidden="true"></i>
+    <>
+      {/* Metadatos SEO */}
+      <Helmet>
+        <title>{t.title} - VIPTransport</title>
+        <meta name="description" content={`Discover our luxury services: ${t.services.map((s) => s.title).join(", ")}`} />
+      </Helmet>
 
-              <h3 className="text-2xl font-semibold mt-4">{service.title}</h3>
-              <p className="text-gray-300 mt-2 text-sm md:text-base">{service.description}</p>
-            </div>
-          ))}
+      {/* Contenido principal */}
+      <section
+        id="services"
+        className="bg-black text-white py-16"
+        role="region"
+        aria-labelledby="services-title"
+      >
+        <div className="container mx-auto px-4 text-center">
+          {/* Título */}
+          <h2
+            id="services-title"
+            className="text-3xl md:text-4xl font-bold text-gold mb-8"
+          >
+            {t.title}
+          </h2>
+
+          {/* Lista de servicios */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {t.services.map((service, index) => (
+              <div
+                key={index}
+                className="bg-gray-900 p-6 rounded-xl shadow-lg flex flex-col items-center text-center transition transform hover:scale-105 hover:bg-gray-800 duration-300 ease-in-out"
+                role="article"
+                aria-label={service.title}
+              >
+                {/* Ícono */}
+                <i
+                  className={`${service.icon} text-gold text-4xl mb-4`}
+                  aria-hidden="true"
+                  aria-label={`${service.title} icon`}
+                ></i>
+
+                {/* Título del servicio */}
+                <h3 className="text-2xl font-semibold mt-4">{service.title}</h3>
+
+                {/* Descripción del servicio */}
+                <p className="text-gray-300 mt-2 text-sm md:text-base">
+                  {service.description}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 
