@@ -1,5 +1,32 @@
 import React, { useState, useEffect } from "react";
 import { useLanguage } from "../context/LanguageContext";
+import { Helmet } from "react-helmet-async";
+
+<Helmet>
+  <title>VIPTransport - Transporte de Lujo en Zúrich</title>
+  <meta
+    name="description"
+    content="Servicio de transporte de lujo en Zúrich con vehículos premium y chófer privado. Reserve ahora."
+  />
+  <meta
+    name="keywords"
+    content="transporte de lujo Zúrich, chófer privado Suiza, traslados ejecutivos Zúrich, alquiler de limusina"
+  />
+  <meta
+    property="og:title"
+    content="VIPTransport - Transporte de Lujo en Zúrich"
+  />
+  <meta
+    property="og:description"
+    content="Reserve su servicio de transporte de lujo en Zúrich con vehículos premium y chófer privado."
+  />
+  <meta
+    property="og:image"
+    content="https://www.ejemplo.com/images/viptransport.jpg"
+  />
+  <meta property="og:url" content="https://www.ejemplo.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+</Helmet>;
 
 // Traducciones en cuatro idiomas
 const translations = {
@@ -55,48 +82,92 @@ function Navbar({ onOpenWizard }) {
   const [showNavbar, setShowNavbar] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
+  
     const handleScroll = () => {
-      const aboutSection = document.getElementById("about");
-      if (aboutSection) {
-        const aboutPosition = aboutSection.offsetTop;
-        setShowNavbar(window.scrollY >= aboutPosition - 50);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const aboutSection = document.getElementById("about");
+          if (aboutSection) {
+            const aboutPosition = aboutSection.offsetTop;
+            setShowNavbar(window.scrollY >= aboutPosition - 50);
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
-
+  
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  
 
   return (
     <nav
       className={`fixed top-0 left-0 w-full bg-black text-white p-4 flex items-center justify-between transition-all duration-500 ease-in-out z-50 shadow-lg ${
         showNavbar ? "opacity-100 visible" : "opacity-0 invisible"
       }`}
+      role="navigation"
+      aria-label="Menú principal"
     >
       {/* Logo */}
       <div className="ml-2 text-xl font-bebas">VIPTransport</div>
 
       {/* Menú */}
       <div className="hidden md:flex gap-6">
-        <a href="#home" className="hover:text-gold">{t.home}</a>
-        <a href="#about" className="hover:text-gold">{t.about}</a>
-        <a href="#services" className="hover:text-gold">{t.services}</a>
-        <a href="#vehicles" className="hover:text-gold">{t.vehicles}</a>
-        <a href="#testimonials" className="hover:text-gold">{t.testimonials}</a>
-        <a href="#faq" className="hover:text-gold">{t.faq}</a>
-        <a href="#contact" className="hover:text-gold">{t.contact}</a>
+        <a href="#home" className="hover:text-gold" aria-label="Ir a inicio">
+          {t.home}
+        </a>
+        <a
+          href="#about"
+          className="hover:text-gold"
+          aria-label="Sobre nosotros"
+        >
+          {t.about}
+        </a>
+        <a
+          href="#services"
+          className="hover:text-gold"
+          aria-label="Nuestros servicios"
+        >
+          {t.services}
+        </a>
+        <a
+          href="#vehicles"
+          className="hover:text-gold"
+          aria-label="Nuestros vehículos"
+        >
+          {t.vehicles}
+        </a>
+        <a
+          href="#testimonials"
+          className="hover:text-gold"
+          aria-label="Reseñas de clientes"
+        >
+          {t.testimonials}
+        </a>
+        <a
+          href="#faq"
+          className="hover:text-gold"
+          aria-label="Preguntas frecuentes"
+        >
+          {t.faq}
+        </a>
+        <a href="#contact" className="hover:text-gold" aria-label="Contáctanos">
+          {t.contact}
+        </a>
       </div>
 
       {/* Bloque derecho (botón de reserva ) */}
       <div className="mr-2 flex items-center gap-4">
-        
-
         {/* Botón de Reserva */}
         <button
           onClick={onOpenWizard}
           className="bg-gold bg-opacity-80 text-white px-6 py-3 rounded-full text-base font-bebas hover:bg-yellow-600 transition whitespace-normal text-center leading-tight w-30"
+          aria-label="Reservar servicio de transporte de lujo"
         >
-          {t.bookNow} <i className="ri-arrow-right-line"></i>
+          {t.bookNow} <i className="ri-arrow-right-line" aria-hidden="true"></i>
         </button>
       </div>
     </nav>
