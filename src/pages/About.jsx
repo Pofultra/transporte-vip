@@ -146,10 +146,10 @@ function About() {
     <section id="about" className="bg-black text-white py-16 mt-16 flex flex-col items-center">
       {/* Texto */}
       <div className="w-[404px] h-auto text-center mb-6">
-        <h2 className="font-neue font-bold text-[28px] leading-[64.87px] text-gold">
+        <h2 className="font-bebas font-bold text-[28px] leading-[64.87px] text-gold">
           {t.title}
         </h2>
-        <p className="font-neue font-normal text-[18px] leading-[38px] text-gray-300">
+        <p class="font-semibold text-[18px] leading-[38px] text-gray-300 mx-4">
           {t.description1}
         </p>
       </div>
@@ -164,7 +164,7 @@ function About() {
       </div>
 
       {/* Sub-sección de características */}
-      <div className="container mx-auto px-4 mt-10 mr-2 ml-2">
+      <div className="container mx-auto px-4 mt-10 ">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {t.features.map((item, index) => (
             <div key={index} className="flex flex-col items-center">
