@@ -1,5 +1,6 @@
 import React from "react";
 import { useLanguage } from "../context/LanguageContext";
+import { Helmet } from "react-helmet-async";
 
 // Traducciones
 const translations = {
@@ -35,62 +36,110 @@ const translations = {
 
 function Contact() {
   const { language } = useLanguage();
-  const t = translations[language];
-  return (
-    <section id="contact" className="bg-black text-white py-16">
-      <div className="container mx-auto px-4 text-center">
-        <h2 className="text-3xl font-bold text-gold mb-8">{t.title}</h2>
+  const t = translations[language] || translations["en"];
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {/* Información de Contacto */}
-          <div className="bg-white bg-opacity-10 backdrop-blur-md p-6 rounded-xl shadow-lg border border-white/20">
-            <h3 className="text-2xl font-semibold text-gold mb-4">{t.infoTitle}</h3>
-            <div className="flex flex-col gap-4">
-              <div className="flex items-center gap-2 justify-center">
-                <i className="ri-phone-line text-gold text-2xl"></i>
-                <p>+41 78 969 31 11</p>
-              </div>
-              <div className="flex items-center gap-2 justify-center">
-                <i className="ri-mail-line text-gold text-2xl"></i>
-                <a
-                  href="mailto:info@viptransport.com"
-                  className="underline hover:text-gold"
-                >
-                  info@viptransport.com
-                </a>
-              </div>
-              <p className="text-gray-300 mt-4">{t.followUs}:</p>
-              <div className="flex justify-center gap-4">
-                <a
-                  href="https://www.facebook.com/TuEmpresa"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-gold"
-                >
-                  <i className="ri-facebook-circle-fill text-2xl"></i>
-                </a>
-                <a
-                  href="https://www.instagram.com/TuEmpresa"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-gold"
-                >
-                  <i className="ri-instagram-line text-2xl"></i>
-                </a>
-                <a
-                  href="https://www.linkedin.com/company/TuEmpresa"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-gold"
-                >
-                  <i className="ri-linkedin-box-line text-2xl"></i>
-                </a>
+  return (
+    <>
+      {/* Metadatos SEO */}
+      <Helmet>
+        <title>{t.title} - VIPTransport</title>
+        <meta name="description" content={`Contact us for luxury transport services: ${t.phone}, ${t.email}`} />
+      </Helmet>
+
+      {/* Contenido principal */}
+      <section
+        id="contact"
+        className="bg-black text-white py-16"
+        role="region"
+        aria-labelledby="contact-title"
+      >
+        <div className="container mx-auto px-4 text-center">
+          {/* Título */}
+          <h2
+            id="contact-title"
+            className="text-3xl font-bold text-gold mb-8"
+          >
+            {t.title}
+          </h2>
+
+          {/* Cuadrícula de información de contacto */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Información de Contacto */}
+            <div
+              className="bg-white bg-opacity-10 backdrop-blur-md p-6 rounded-xl shadow-lg border border-white/20"
+              role="article"
+              aria-label="Contact Information"
+            >
+              <h3 className="text-2xl font-semibold text-gold mb-4">
+                {t.infoTitle}
+              </h3>
+              <div className="flex flex-col gap-4">
+                {/* Teléfono */}
+                <div className="flex items-center gap-2 justify-center">
+                  <i
+                    className="ri-phone-line text-gold text-2xl"
+                    aria-hidden="true"
+                  ></i>
+                  <p>+41 78 969 31 11</p>
+                </div>
+
+                {/* Correo Electrónico */}
+                <div className="flex items-center gap-2 justify-center">
+                  <i
+                    className="ri-mail-line text-gold text-2xl"
+                    aria-hidden="true"
+                  ></i>
+                  <a
+                    href="mailto:info@viptransport.com"
+                    className="underline hover:text-gold transition"
+                    aria-label="Send email to info@viptransport.com"
+                  >
+                    info@viptransport.com
+                  </a>
+                </div>
+
+                {/* Redes Sociales */}
+                <p className="text-gray-300 mt-4">{t.followUs}:</p>
+                <div className="flex justify-center gap-4">
+                  {/* Facebook */}
+                  <a
+                    href="https://www.facebook.com/TuEmpresa"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-gold transition"
+                    aria-label="Follow us on Facebook"
+                  >
+                    <i className="ri-facebook-circle-fill text-2xl"></i>
+                  </a>
+
+                  {/* Instagram */}
+                  <a
+                    href="https://www.instagram.com/TuEmpresa"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-gold transition"
+                    aria-label="Follow us on Instagram"
+                  >
+                    <i className="ri-instagram-line text-2xl"></i>
+                  </a>
+
+                  {/* LinkedIn */}
+                  <a
+                    href="https://www.linkedin.com/company/TuEmpresa"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-gold transition"
+                    aria-label="Follow us on LinkedIn"
+                  >
+                    <i className="ri-linkedin-box-line text-2xl"></i>
+                  </a>
+                </div>
               </div>
             </div>
-          </div>          
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 

@@ -185,7 +185,6 @@ const translations = {
 function WizardModal({ onClose }) {
   const { language } = useLanguage();
   const t = translations[language] || translations["en"];
-
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
     service: "",
@@ -235,7 +234,7 @@ function WizardModal({ onClose }) {
     `;
     const phoneNumber = "+5353616391";
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappURL, "_blank");
+    window.open(whatsappURL, "_blank", "noopener noreferrer");
     onClose();
   };
 
@@ -249,6 +248,7 @@ function WizardModal({ onClose }) {
               value={formData.service}
               onChange={handleChange}
               className="bg-gray-800 font-bebas w-[370px] h-[45px] p-3 rounded-[9.12px] outline-none focus:ring-2 focus:ring-gold"
+              aria-label={t.selectOption}
             >
               <option value="">{t.selectOption}</option>
               {t.services.map((service, index) => (
@@ -277,9 +277,9 @@ function WizardModal({ onClose }) {
                 value={formData.date}
                 onChange={handleChange}
                 className="bg-gray-800 font-bebas w-[370px] h-[45px] p-3 rounded-[9.12px] outline-none focus:ring-2 focus:ring-gold"
+                aria-label={t.date}
               />
             </div>
-
             {/* Campo de Hora */}
             <div className="relative">
               <label
@@ -295,6 +295,7 @@ function WizardModal({ onClose }) {
                 value={formData.time}
                 onChange={handleChange}
                 className="bg-gray-800 font-bebas w-[370px] h-[45px] p-3 rounded-[9.12px] outline-none focus:ring-2 focus:ring-gold"
+                aria-label={t.time}
               />
             </div>
           </div>
@@ -309,6 +310,7 @@ function WizardModal({ onClose }) {
               value={formData.pickup}
               onChange={handleChange}
               className="bg-gray-800 font-bebas w-[370px] h-[45px] p-3 rounded-[9.12px] outline-none focus:ring-2 focus:ring-gold"
+              aria-label={t.pickup}
             />
             <input
               type="text"
@@ -317,6 +319,7 @@ function WizardModal({ onClose }) {
               value={formData.destination}
               onChange={handleChange}
               className="bg-gray-800 font-bebas w-[370px] h-[45px] p-3 rounded-[9.12px] outline-none focus:ring-2 focus:ring-gold"
+              aria-label={t.destination}
             />
             <select
               name="car"
@@ -328,6 +331,7 @@ function WizardModal({ onClose }) {
                 setFormData((prev) => ({ ...prev, car: selectedCar }));
               }}
               className="bg-gray-800 font-bebas w-[370px] h-[45px] p-3 rounded-[9.12px] outline-none focus:ring-2 focus:ring-gold"
+              aria-label={t.selectCar}
             >
               <option value="">{t.selectOption}</option>
               {t.cars.map((car, index) => (
@@ -348,6 +352,7 @@ function WizardModal({ onClose }) {
               value={formData.fullName}
               onChange={handleChange}
               className="bg-gray-800 font-bebas w-[370px] h-[45px] p-3 rounded-[9.12px] outline-none focus:ring-2 focus:ring-gold"
+              aria-label={t.fullName}
             />
             <input
               type="email"
@@ -356,6 +361,7 @@ function WizardModal({ onClose }) {
               value={formData.email}
               onChange={handleChange}
               className="bg-gray-800 font-bebas w-[370px] h-[45px] p-3 rounded-[9.12px] outline-none focus:ring-2 focus:ring-gold"
+              aria-label={t.email}
             />
             <input
               type="tel"
@@ -364,6 +370,7 @@ function WizardModal({ onClose }) {
               value={formData.phone}
               onChange={handleChange}
               className="bg-gray-800 font-bebas w-[370px] h-[45px] p-3 rounded-[9.12px] outline-none focus:ring-2 focus:ring-gold"
+              aria-label={t.phone}
             />
           </div>
         );
@@ -416,47 +423,56 @@ function WizardModal({ onClose }) {
       <div
         className="absolute inset-0 bg-black bg-opacity-60"
         onClick={onClose}
+        role="button"
+        aria-label="Close modal"
       ></div>
-
       <div className="relative w-[404px] h-[416px] bg-[#202020] rounded-[11px] shadow-lg p-6 flex flex-col justify-between z-10">
         <button
           onClick={onClose}
           className="absolute top-3 right-3 text-gray-400 hover:text-gray-200"
+          aria-label="Close modal"
         >
           ✕
         </button>
-
         {/* Título del paso con estilo correcto */}
         <h3 className="text-gold font-bebas text-[22px] leading-[64.87px] font-bebas text-center">
           {t.steps[currentStep - 1]}
         </h3>
-
         {/* Barra de progreso estilizada */}
         <div className="w-[369px] h-[5px] bg-gray-700 rounded-[48px] mx-auto mt-2 overflow-hidden">
           <div
             className="h-full bg-gold transition-all duration-300"
             style={{ width: `${progressPercent}%` }}
+            role="progressbar"
+            aria-valuenow={progressPercent}
+            aria-valuemin="0"
+            aria-valuemax="100"
           ></div>
         </div>
-
         <div className="flex-grow flex items-center justify-center">
           {renderStepContent()}
         </div>
-
         {/* Botones de Control */}
         <div className="flex justify-between gap-[8.36px] mt-4">
           {currentStep > 1 && (
             <button
               onClick={prevStep}
               className="w-[370px] h-[42px] bg-gray-700 text-white font-bebas rounded-[380.14px] hover:bg-gray-600 transition"
+              aria-label={t.back}
             >
               {t.back}
             </button>
           )}
-
           <button
-            onClick={currentStep < t.steps.length ? nextStep : handleSubmit}
+            onClick={
+              currentStep < t.steps.length
+                ? nextStep
+                : handleSubmit
+            }
             className="w-[370px] h-[42px] bg-gold text-white font-bebas rounded-[380.14px] hover:bg-yellow-600 transition"
+            aria-label={
+              currentStep < t.steps.length ? t.next : t.send
+            }
           >
             {currentStep < t.steps.length ? t.next : t.send}
           </button>
