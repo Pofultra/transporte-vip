@@ -35,7 +35,7 @@ const translations = {
       { name: "BMW 520 D M Paket", passengers: 3, transmission: "Automatic", images: [bmw1, bmw2] },
       { name: "Mercedes Sprinter", passengers: 15, transmission: "Mechanical", images: [sprinter1, sprinter2] },
       { name: "Bus", passengers: 50, transmission: "Mechanical", images: [bus1, bus2] },
-      { name: "Tesla", passengers: 4, transmission: "Automatic", images: [tesla1, tesla2] },
+      { name: "Tesla Y Performance", passengers: 4, transmission: "Automatic", images: [tesla1, tesla2] },
     ],
   },
   es: {
@@ -51,7 +51,7 @@ const translations = {
       { name: "BMW 520 D M Paket", passengers: 3, transmission: "Automática", images: [bmw1, bmw2] },
       { name: "Mercedes Sprinter", passengers: 15, transmission: "Mecánica", images: [sprinter1, sprinter2] },
       { name: "Autobús", passengers: 50, transmission: "Mecánica", images: [bus1, bus2] },
-      { name: "Tesla", passengers: 4, transmission: "Automática", images: [tesla1, tesla2] },
+      { name: "Tesla Y Performance", passengers: 4, transmission: "Automática", images: [tesla1, tesla2] },
     ],
   },
   de: {
@@ -67,7 +67,7 @@ const translations = {
       { name: "BMW 520 D M Paket", passengers: 3, transmission: "Automatik", images: [bmw1, bmw2] },
       { name: "Mercedes Sprinter", passengers: 15, transmission: "Manuell", images: [sprinter1, sprinter2] },
       { name: "Bus", passengers: 50, transmission: "Manuell", images: [bus1, bus2] },
-      { name: "Tesla", passengers: 4, transmission: "Automatik", images: [tesla1, tesla2] },
+      { name: "Tesla Y Performance", passengers: 4, transmission: "Automatik", images: [tesla1, tesla2] },
     ],
   },
   fr: {
@@ -83,7 +83,7 @@ const translations = {
       { name: "BMW 520 D M Paket", passengers: 3, transmission: "Automatique", images: [bmw1, bmw2] },
       { name: "Mercedes Sprinter", passengers: 15, transmission: "Manuelle", images: [sprinter1, sprinter2] },
       { name: "Bus", passengers: 50, transmission: "Manuelle", images: [bus1, bus2] },
-      { name: "Tesla", passengers: 4, transmission: "Automatique", images: [tesla1, tesla2] },
+      { name: "Tesla Y Performance", passengers: 4, transmission: "Automatique", images: [tesla1, tesla2] },
     ],
   },
 };
