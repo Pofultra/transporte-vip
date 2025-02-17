@@ -40,12 +40,7 @@ function Contact() {
 
   return (
     <>
-      {/* Metadatos SEO */}
-      <Helmet>
-        <title>{t.title} - VIPTransport</title>
-        <meta name="description" content={`Contact us for luxury transport services: ${t.phone}, ${t.email}`} />
-      </Helmet>
-
+      
       {/* Contenido principal */}
       <section
         id="contact"
@@ -63,7 +58,7 @@ function Contact() {
           </h2>
 
           {/* Cuadrícula de información de contacto */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1  gap-8 max-w-4xl mx-auto">
             {/* Información de Contacto */}
             <div
               className="bg-white bg-opacity-10 backdrop-blur-md p-6 rounded-xl shadow-lg border border-white/20"
