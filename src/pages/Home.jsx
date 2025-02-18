@@ -14,9 +14,9 @@ const translations = {
     stats: {
       clients: "10K+",
       clientsText: "Satisfied Clients",
-      experience: "20+",
+      experience: "10+",
       experienceText: "Years of Experience",
-      drivers: "100",
+      drivers: "20",
       driversText: "Professional Drivers",
     },
     metaDescription:
@@ -31,9 +31,9 @@ const translations = {
     stats: {
       clients: "10K+",
       clientsText: "Zufriedene Kunden",
-      experience: "20+",
+      experience: "10+",
       experienceText: "Jahrelange Erfahrung",
-      drivers: "100",
+      drivers: "20",
       driversText: "Professionelle Fahrer",
     },
     metaDescription:
@@ -48,9 +48,9 @@ const translations = {
     stats: {
       clients: "10K+",
       clientsText: "Clientes Satisfechos",
-      experience: "20+",
+      experience: "10+",
       experienceText: "Años de Experiencia",
-      drivers: "100",
+      drivers: "20",
       driversText: "Conductores Profesionales",
     },
     metaDescription:
@@ -65,9 +65,9 @@ const translations = {
     stats: {
       clients: "10K+",
       clientsText: "Clients Satisfaits",
-      experience: "20+",
+      experience: "10+",
       experienceText: "Des Années d'Expérience",
-      drivers: "100",
+      drivers: "20",
       driversText: "Conducteurs Professionnels",
     },
     metaDescription:
