@@ -232,7 +232,7 @@ function WizardModal({ onClose }) {
       ${t.email}: ${formData.email}\n
       ${t.phone}: ${formData.phone}
     `;
-    const phoneNumber = "+5353616391";
+    const phoneNumber = "+41 78 969 31 11";
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappURL, "_blank", "noopener noreferrer");
     onClose();

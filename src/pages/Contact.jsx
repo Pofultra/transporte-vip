@@ -75,7 +75,7 @@ function Contact() {
                     className="ri-phone-line text-gold text-2xl"
                     aria-hidden="true"
                   ></i>
-                  <p>+41 78 969 31 11</p>
+                  <p>+41 44 591 69 30 </p>
                 </div>
 
                 {/* Correo Electrónico */}
