@@ -40,7 +40,6 @@ function Contact() {
 
   return (
     <>
-      
       {/* Contenido principal */}
       <section
         id="contact"
@@ -50,10 +49,7 @@ function Contact() {
       >
         <div className="container mx-auto px-4 text-center">
           {/* Título */}
-          <h2
-            id="contact-title"
-            className="text-3xl font-bold text-gold mb-8"
-          >
+          <h2 id="contact-title" className="text-3xl font-bold text-gold mb-8">
             {t.title}
           </h2>
 
@@ -70,12 +66,21 @@ function Contact() {
               </h3>
               <div className="flex flex-col gap-4">
                 {/* Teléfono */}
-                <div className="flex items-center gap-2 justify-center">
-                  <i
-                    className="ri-phone-line text-gold text-2xl"
-                    aria-hidden="true"
-                  ></i>
-                  <p>+41 44 591 69 30 </p>
+                <div className="flex flex-col items-center gap-2 justify-center">
+                  <div className="flex items-center gap-2">
+                    <i
+                      className="ri-phone-line text-gold text-2xl"
+                      aria-hidden="true"
+                    ></i>
+                    <p>+41 44 591 69 30</p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <i
+                      className="ri-phone-line text-gold text-2xl"
+                      aria-hidden="true"
+                    ></i>
+                    <p>+41 78 969 31 11</p>
+                  </div>
                 </div>
 
                 {/* Correo Electrónico */}

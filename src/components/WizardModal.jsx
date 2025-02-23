@@ -170,9 +170,9 @@ const translations = {
       { name: "Mercedes V-Class", capacity: 7, rate: 4.0 },
       { name: "Mercedes S-Class", capacity: 4, rate: 5.0 },
       { name: "Mercedes E-Class", capacity: 4, rate: 3.0 },
-      { name: "BMW 520 D M Paket", capacity: 4, rate: 4.0 },
-      { name: "Mercedes Sprinter", capacity: 16, rate: 5.0 },
-      { name: "Bus (50 Passagiere)", capacity: 50, rate: 5.0 },
+      { name: "BMW 520 D M Paket", capacity: 4, rate: 3.0 },
+      { name: "Mercedes Sprinter", capacity: 12, rate: 8.0 },
+      { name: "Bus (50 Passagiere)", capacity: 50, rate: 8.0 },
       { name: "Tesla Y Performance", capacity: 5, rate: 3.0 },
     ],
 
