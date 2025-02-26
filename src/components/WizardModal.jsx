@@ -36,9 +36,9 @@ const translations = {
       { name: "Mercedes V-Class", capacity: 7, rate: 4.0 },
       { name: "Mercedes S-Class", capacity: 4, rate: 5.0 },
       { name: "Mercedes E-Class", capacity: 4, rate: 3.0 },
-      { name: "BMW 520 D M Paket", capacity: 4, rate: 4.0 },
-      { name: "Mercedes Sprinter", capacity: 16, rate: 5.0 },
-      { name: "Bus (50 Passagiere)", capacity: 50, rate: 5.0 },
+      { name: "BMW 520 D M Paket", capacity: 4, rate: 3.0 },
+      { name: "Mercedes Sprinter", capacity: 16, rate: 8.0 },
+      { name: "Bus (50 Passagiere)", capacity: 50, rate: 8.0 },
       { name: "Tesla Y Performance", capacity: 5, rate: 3.0 },
     ],
     confirmation: "Überprüfen Sie Ihre Daten",
@@ -79,9 +79,9 @@ const translations = {
       { name: "Mercedes V-Class", capacity: 7, rate: 4.0 },
       { name: "Mercedes S-Class", capacity: 4, rate: 5.0 },
       { name: "Mercedes E-Class", capacity: 4, rate: 3.0 },
-      { name: "BMW 520 D M Paket", capacity: 4, rate: 4.0 },
-      { name: "Mercedes Sprinter", capacity: 16, rate: 5.0 },
-      { name: "Bus (50 Passagiere)", capacity: 50, rate: 5.0 },
+      { name: "BMW 520 D M Paket", capacity: 4, rate: 3.0 },
+      { name: "Mercedes Sprinter", capacity: 16, rate: 8.0 },
+      { name: "Bus (50 Passagiere)", capacity: 50, rate: 8.0 },
       { name: "Tesla Y Performance", capacity: 5, rate: 3.0 },
     ],
     confirmation: "Vérifiez vos informations",
@@ -125,9 +125,9 @@ const translations = {
       { name: "Mercedes V-Class", capacity: 7, rate: 4.0 },
       { name: "Mercedes S-Class", capacity: 4, rate: 5.0 },
       { name: "Mercedes E-Class", capacity: 4, rate: 3.0 },
-      { name: "BMW 520 D M Paket", capacity: 4, rate: 4.0 },
-      { name: "Mercedes Sprinter", capacity: 16, rate: 5.0 },
-      { name: "Bus (50 Passagiere)", capacity: 50, rate: 5.0 },
+      { name: "BMW 520 D M Paket", capacity: 4, rate: 3.0 },
+      { name: "Mercedes Sprinter", capacity: 16, rate: 8.0 },
+      { name: "Bus (50 Passagiere)", capacity: 50, rate: 8.0 },
       { name: "Tesla Y Performance", capacity: 5, rate: 3.0 },
     ],
 
@@ -232,7 +232,7 @@ function WizardModal({ onClose }) {
       ${t.email}: ${formData.email}\n
       ${t.phone}: ${formData.phone}
     `;
-    const phoneNumber = "+41 78 969 31 11";
+    const phoneNumber = "+41789693111";
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappURL, "_blank", "noopener noreferrer");
     onClose();

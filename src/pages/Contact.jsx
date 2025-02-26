@@ -90,11 +90,11 @@ function Contact() {
                     aria-hidden="true"
                   ></i>
                   <a
-                    href="mailto:info@viptransport.com"
+                    href="mailto:info@jetluxe-zürich.ch"
                     className="underline hover:text-gold transition"
-                    aria-label="Send email to info@viptransport.com"
+                    aria-label="Send email to info@jetluxe-zürich.ch"
                   >
-                    info@viptransport.com
+                    info@jetluxe-zürich.ch
                   </a>
                 </div>
 
@@ -114,7 +114,7 @@ function Contact() {
 
                   {/* Instagram */}
                   <a
-                    href="https://www.instagram.com/jayscomfort.luxury?igsh=MWtjeWM2cms3Z3dmMg=="
+                    href="https://www.instagram.com/jays_transfers?igsh=MTRubG04NWM2cTAx&utm_source=qr"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-gold transition"
